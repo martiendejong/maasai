@@ -1,0 +1,78 @@
+.text p {
+    font-size: 2.8vh;
+}
+
+.text {
+    top: 20vh;
+    left: 45vw;
+    width: 40vw;
+    height: 45vh;
+}
+
+.image {
+    top: 20vh;
+    left: 10vw;
+    width: 28vw;
+    height: 51vh;
+}
+
+button {
+    display: inline-block;
+    position: absolute;
+}
+
+button:first-of-type {
+    left: 5vw;
+}
+
+button:last-of-type {
+    right: 5vw;
+}
+
+
+mat-icon {
+    font-size: 3.4vh;
+    height: auto;
+    width: auto;
+}
+
+.text button {
+    background: linear-gradient(135deg, #006400, #009933);
+    box-shadow: 0 1vw 1.5vw rgba(96, 255, 96, 0.6);
+}
+
+ .text button:hover {
+    background: linear-gradient(135deg, #226422, #229933);
+}
+
+
+/* portrait */
+@media (min-height: 130vw) {
+
+    .text p {
+        font-size: 1.6vh;
+    }
+
+    .text button {
+        margin-top: 2vh;
+        font-size: 1.8vh;
+    }
+    
+    mat-icon {
+        font-size: 1.8vh;
+    }
+
+    .text {
+        top: 53vh;
+        left: 15vw;
+        width: 65vw;
+        height: 30vh;
+    }
+    
+    .image {
+        top: 10vh;
+        left: 15vw;
+        width: 71vw;
+        height: 36vh;
+    }
+}

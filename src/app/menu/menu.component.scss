@@ -1,0 +1,100 @@
+/* mobile menu */
+/* Mobile Hamburger Menu Styles */
+  
+.mobile-menu {
+    position: fixed;
+    z-index: 10000000;
+    top: 2vw;
+    right: 2vw;
+}
+
+  /* Hamburger icon */
+.menu-icon {
+    display: block;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 5vw;
+    height: 0.8vw;
+    margin: 0.66vw auto;
+    border-radius: 1vw;
+    background-color: #ddd;
+    box-shadow: 0 2vw 3vw rgba(0, 0, 0, 0.4);
+    border: 0.2vw solid #222;
+    transition: background-color 0.3s;
+}
+
+
+/* portrait */
+@media (min-height: 130vw) {
+
+    .bar {
+        width: 9vw;
+    }
+
+    .mobile-menu {
+        top: 2vh;
+        right: 2vh;
+    }
+
+    .bar {
+        display: block;
+        width: 5vh;
+        height: 0.8vh;
+        margin: 0.66vh auto;
+        border-radius: 1vh;
+        background-color: #ddd;
+        box-shadow: 0 2vh 3vh rgba(0, 0, 0, 0.4);
+        border: 0.2vh solid #222;
+        transition: background-color 0.3s;
+    }
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Media query for devices with high pixel density and small screen width */
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
+    .mobile-menu {
+        display: block; /* Display the div on devices with high pixel density and small screens */
+    }
+}
+
+#fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background: linear-gradient(to bottom right, #6A0DAD 0%, #BE0A26 100%);
+}
+
+#fullscreen-menu .items {
+    margin-top: 10vh;
+    border: 0.1vh solid #444;
+    height: 80vh;
+    background: linear-gradient(to bottom right, #aaa 0%, #fff 100%);
+}
+
+#fullscreen-menu .items .item {
+    border-bottom: 0.1vh solid #444;
+    display: block;
+    font-size: 4vh;
+    color: #222;
+    padding: 2vh;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(to bottom left, #fff 0%, #aaf 100%);    
+}
+
+#fullscreen-menu .items .item:last-of-type {
+    border-bottom: 0;   
+}
+
+#fullscreen-menu .items .item.noclick {
+    background: none !important;
+}

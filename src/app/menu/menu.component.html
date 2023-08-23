@@ -1,0 +1,17 @@
+<nav class="mobile-menu">
+  <label for="menu-toggle" class="menu-icon" (click)="fullscreenMenuVisible = !fullscreenMenuVisible">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </label>
+</nav>
+
+<div id="fullscreen-menu" [@fadeInAnimation]="fullscreenMenuVisible">
+  <div class="items">
+    <a class="item noclick">MENU</a>
+    <a href="#investment-pitch" class="item" (click)="hideMenu()">Invest</a>
+    <a href="#goat-pitch" class="item" (click)="hideMenu()">Goats</a>
+    <a href="#about-us" class="item" (click)="hideMenu()">Founders</a>
+    <a class="item noclick"></a>
+  </div>
+</div>
