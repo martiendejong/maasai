@@ -29,7 +29,6 @@
 
 /* portrait */
 @media (min-height: 130vw) {
-
     .bar {
         width: 9vw;
     }
@@ -57,9 +56,13 @@
 }
 
 /* Media query for devices with high pixel density and small screen width */
-@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px) {
+@media (-webkit-min-device-pixel-ratio: 2) or (max-width: 768px) {
     .mobile-menu {
         display: block; /* Display the div on devices with high pixel density and small screens */
+    }
+
+    .top-menu {
+        display: none;
     }
 }
 
@@ -97,4 +100,32 @@
 
 #fullscreen-menu .items .item.noclick {
     background: none !important;
+}
+
+#top-menu {
+    display: block;
+    position: fixed;
+    top: 9.5vh;
+    text-align: center;
+    left: 25vw;
+    right: 25vw;
+    z-index: 900000;
+    filter: drop-shadow(0vh 1vh 0.5vh #000);
+}
+
+#top-menu .items {
+    border-top: 0.5vh solid #ff6;
+}
+
+#top-menu .item {
+    color: #ff6;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    font-size: 4vh;
+    text-decoration: none;
+    font-family: AmaticSCBold;
+}
+
+#top-menu .item:hover {
+    text-decoration: underline;
 }

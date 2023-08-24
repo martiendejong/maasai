@@ -16,16 +16,19 @@
     height: 51vh;
 }
 
-button {
+button, a {
     display: inline-block;
     position: absolute;
+    text-decoration: none;
 }
 
-button:first-of-type {
+button:first-of-type,
+a:first-of-type {
     left: 5vw;
 }
 
-button:last-of-type {
+button:last-of-type,
+a:last-of-type {
     right: 5vw;
 }
 
@@ -36,12 +39,14 @@ mat-icon {
     width: auto;
 }
 
-.text button {
+.text button,
+.text a {
     background: linear-gradient(135deg, #006400, #009933);
     box-shadow: 0 1vw 1.5vw rgba(96, 255, 96, 0.6);
 }
 
- .text button:hover {
+ .text button:hover,
+ .text a:hover {
     background: linear-gradient(135deg, #226422, #229933);
 }
 

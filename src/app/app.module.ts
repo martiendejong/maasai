@@ -16,6 +16,8 @@ import { ScreenPitchGoatComponent } from './screen-pitch-goat/screen-pitch-goat.
 import { ScreenMartienandsophyComponent } from './screen-martienandsophy/screen-martienandsophy.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { LogoComponent } from './logo/logo.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MatIconModule } from '@angular/material/icon';
     MenuComponent,
     ScreenPitchInvestComponent,
     ScreenPitchGoatComponent,
-    ScreenMartienandsophyComponent
+    ScreenMartienandsophyComponent,
+    LogoComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
