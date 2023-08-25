@@ -1,36 +1,40 @@
-.text p, .text h1, .text h2, .text h3, .text h4 {
-    margin-bottom: 2vh;
+/* layout */
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-
-.text h1, .text h2, .text h3, .text h4 {
-    // text-transform: capitalize;
-}
-
-
-
-
-
 .text, .image {
     z-index: 10000;
     background-color: #ddd;
     position: absolute;
     border-radius: 5vw;
     padding: 3vh 3vw 3vh 3vw;
-    font-size: 4vh;
     color: #444;
     box-shadow: 0 2vw 3vw rgba(0, 0, 0, 0.4);
     border: 0.2vw solid #222;
 }
+.image {
+    background-color: #8B4513;
+    padding: 0;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
 
-.text {
-    text-align: center;
-    font-size: 3.4vh;
+/* Standard styles */
+.text p, .text h1, .text h2, .text h3, .text h4 {
+    margin-bottom: 2vh;
+}
+
+
+.text h4 {
+    font-family: sans-serif;
 }
 
 .text button,
 .text a {
-    height: 6vh;
-    font-size: 3.4vh;
     border-radius: 2vh;
     margin: auto;
     display: block;
@@ -38,17 +42,38 @@
     padding-right: 1vw;
     box-shadow: 0 1vw 1.5vw rgba(255, 96, 96, 0.6);
     color: #ff6;
-    margin-top: 5vh;
     background: linear-gradient(135deg, #f00, #a90000);
+}
+
+
+
+
+
+
+
+/* sizes */
+.text {
+    font-size: 3.4vh;
+}
+/* Specific styles */
+.text h4 {
+    font-size: 3.2vh;
+}
+/* buttons */
+.text button,
+.text a {
+    height: 6vh;
+    font-size: 3.4vh;
+    margin-top: 5vh;
+}
+.text a {
     cursor: pointer;
     border-width: 2px;
     border-style: outset;
     border-color: buttonborder;
-    padding-block: 1px;
-    padding-inline: 6px;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
-
 .text button:hover,
 .text a:hover {
     color: #ff0;
@@ -60,22 +85,7 @@
     background: linear-gradient(135deg, #f22, #a92222);
 }
 
-.image {
-    background-color: #8B4513;
-    padding: 0;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-}
 
-
-
-
-
-.text h4 {
-    font-size: 3.2vh;
-    font-family: sans-serif;
-}
 
 /* portrait */
 @media (min-height: 130vw) {
@@ -84,5 +94,19 @@
     }
     .text p {
         font-size: 2vh;
+    }
+
+     .text button,
+     .text a {
+        margin-top: 2vh;
+        font-size: 1.8vh;
+        height: 4vh !important;
+    } 
+    
+    .text button {
+        margin-top: 2vh;
+        font-size: 1.8vh;
     }    
 }
+
+

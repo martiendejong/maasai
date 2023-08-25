@@ -61,8 +61,8 @@
         display: block; /* Display the div on devices with high pixel density and small screens */
     }
 
-    .top-menu {
-        display: none;
+    #top-menu {
+        display: none !important;
     }
 }
 
