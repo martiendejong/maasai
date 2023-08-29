@@ -11,7 +11,6 @@ export class ButtonPrevpageComponent extends ButtonNextPrev {
     super();
   }
   override get navigationVisible() {
-    //return super.navigationVisible;
     var rect = this.el.nativeElement.getBoundingClientRect();
     return super.navigationVisible && rect.bottom < window.innerHeight * 1.5;
   }

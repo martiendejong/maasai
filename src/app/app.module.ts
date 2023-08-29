@@ -18,6 +18,10 @@ import { ScreenMartienandsophyComponent } from './screen-martienandsophy/screen-
 import { MatIconModule } from '@angular/material/icon';
 import { LogoComponent } from './logo/logo.component';
 import { TitleComponent } from './title/title.component';
+import { ScreenInvestComponent } from './screen-invest/screen-invest.component';
+import { ScreenAnimalslistComponent } from './screen-animalslist/screen-animalslist.component';
+import { ScreenAnimaldetailsComponent } from './screen-animaldetails/screen-animaldetails.component';
+import { FittextDirective } from './fittext.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { TitleComponent } from './title/title.component';
     ScreenPitchGoatComponent,
     ScreenMartienandsophyComponent,
     LogoComponent,
-    TitleComponent
+    TitleComponent,
+    ScreenInvestComponent,
+    ScreenAnimalslistComponent,
+    ScreenAnimaldetailsComponent,
+    FittextDirective
   ],
   imports: [
     BrowserModule,

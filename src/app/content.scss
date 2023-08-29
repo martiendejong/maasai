@@ -1,19 +1,32 @@
 /* layout */
+.gallery {
+    z-index: 10000;
+    position: absolute;
+    filter: drop-shadow(0vh 1vh 0.5vh #000);
+    text-align: center;
+}
+.title {
+    z-index: 10000;
+    position: absolute;
+    filter: drop-shadow(0vh 1vh 0.5vh #000);  
+}
+.gallery img {
+    border: 0.2vw solid #222;
+    border-radius: 5vw;
+    cursor: pointer;
+}
 .text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 }
 .text, .image {
     z-index: 10000;
-    background-color: #ddd;
     position: absolute;
-    border-radius: 5vw;
-    padding: 3vh 3vw 3vh 3vw;
-    color: #444;
     box-shadow: 0 2vw 3vw rgba(0, 0, 0, 0.4);
     border: 0.2vw solid #222;
+    border-radius: 5vw;
+    background-color: #ddd;
+    padding: 3vh 3vw 3vh 3vw;
+    color: #444;
 }
 .image {
     background-color: #8B4513;
@@ -24,17 +37,16 @@
 }
 
 /* Standard styles */
-.text p, .text h1, .text h2, .text h3, .text h4 {
-    margin-bottom: 2vh;
-}
-
-
 .text h4 {
     font-family: sans-serif;
 }
-
+mat-icon {    
+    height: auto;
+    width: auto;
+}
 .text button,
 .text a {
+    cursor: pointer;
     border-radius: 2vh;
     margin: auto;
     display: block;
@@ -44,69 +56,44 @@
     color: #ff6;
     background: linear-gradient(135deg, #f00, #a90000);
 }
-
-
-
-
-
-
-
-/* sizes */
-.text {
-    font-size: 3.4vh;
-}
-/* Specific styles */
-.text h4 {
-    font-size: 3.2vh;
-}
-/* buttons */
-.text button,
-.text a {
-    height: 6vh;
-    font-size: 3.4vh;
-    margin-top: 5vh;
-}
 .text a {
     cursor: pointer;
     border-width: 2px;
     border-style: outset;
     border-color: buttonborder;
-    display: flex;
+
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
+
+    text-decoration: none;
+    box-sizing: border-box;
 }
 .text button:hover,
 .text a:hover {
     color: #ff0;
-    margin-top: 4.8vh;
-    height: 6.4vh;
-    padding-left: 1.2vw;
-    padding-right: 1.2vw;
-    font-size: 3.8vh;
     background: linear-gradient(135deg, #f22, #a92222);
+    transform: scale(1.1);    
+}
+.text button,
+.text a {
+    padding-top: 0.6vh;
+    padding-bottom: 0.6vh;
+}
+// .text button:hover,
+// .text a:hover {
+//     margin-top: 4.8vh;
+// }
+
+input {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 80%;
 }
 
+//@import 'texts.scss';
 
-
-/* portrait */
-@media (min-height: 130vw) {
-    .text h4 {
-        font-size: 2.2vh;
-    }
-    .text p {
-        font-size: 2vh;
-    }
-
-     .text button,
-     .text a {
-        margin-top: 2vh;
-        font-size: 1.8vh;
-        height: 4vh !important;
-    } 
-    
-    .text button {
-        margin-top: 2vh;
-        font-size: 1.8vh;
-    }    
+.text p, .text h1, .text h2, .text h3, .text h4 {
+    margin-bottom: 2%;
 }
-
-

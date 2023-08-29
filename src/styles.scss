@@ -19,7 +19,7 @@ html {
 }
 
 html, body { height: 100%; }
-body { font-family: Roboto, "Helvetica Neue", sans-serif; }
+body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* landscape */
 .portrait {
@@ -37,19 +37,9 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
-
-.page {
+.hidden {
+    display: none;
 }
-
-
-
-
-
-
-
-
-
-/* landscape */
-@media (max-height: 130vw) {
-    
+.visible {
+    display: block;
 }

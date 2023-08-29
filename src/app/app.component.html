@@ -18,6 +18,24 @@
   <div class="content" id="about-us">
     <app-screen-martienandsophy />
     <app-button-prevpage to="goat-pitch" />
+    <app-button-nextpage to="invest" />
+  </div>
+
+  <div class="content" id="invest">
+    <app-screen-invest />
+    <app-button-prevpage to="about-us" />
+    <app-button-nextpage to="animals-list" />
+  </div>
+
+  <div class="content" id="animals-list">
+    <app-screen-animalslist />
+    <app-button-prevpage to="invest" />
+    <app-button-nextpage to="animal-details" />
+  </div>
+
+  <div class="content" id="animal-details">
+    <app-screen-animaldetails />
+    <app-button-prevpage to="animals-list" />
   </div>
 
 </div>

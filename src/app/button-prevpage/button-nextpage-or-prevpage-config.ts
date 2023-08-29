@@ -64,5 +64,5 @@ export class ButtonNextpageOrPrevpageConfig {
             ButtonNextpageOrPrevpageConfig.setArrowsTimer();
             ButtonNextpageOrPrevpageConfig.navigationVisible = true;
         }
-    }      
+    }
 }
