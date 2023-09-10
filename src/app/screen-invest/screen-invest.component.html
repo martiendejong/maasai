@@ -1,0 +1,35 @@
+<div class="text biggerfont">
+    <div style="height: 12%; padding-bottom: 2%" fittext>
+        <h4>Choose your investment</h4>
+    </div>
+    <div style="height: 64%; padding-bottom: 4%" fittext>
+        <div>
+            <p class="smalltext">Payment method</p>
+            <div class="payment-methods">
+                <label class="button-label">
+                    <input type="radio" name="payment-option" class="hidden-radio" />
+                    <img src="assets/iDEAL.png" />
+                </label>
+                <label class="button-label">
+                    <input type="radio" name="payment-option" class="hidden-radio" />
+                    <img src="assets/paypal.png" />
+                </label>
+                <label class="button-label">
+                    <input type="radio" name="payment-option" class="hidden-radio" />
+                    <img src="assets/creditcards.jpg" />
+                </label>
+                <label class="button-label">
+                    <input type="radio" name="payment-option" class="hidden-radio" />
+                    <img src="assets/sepa.jpg" />
+                </label>
+            </div>
+            <span class="smalltext">Amount (in dollars)</span>
+            <input [value]="amount" />
+        </div>
+    </div>
+    <div style="height: 18%" fittext>
+        <button>Invest Now</button>
+    </div>
+</div>
+<img class="image portrait" src="assets/invest_wide.png" />
+<img class="image landscape" src="assets/invest.png" />

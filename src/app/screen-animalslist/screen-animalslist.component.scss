@@ -1,0 +1,43 @@
+/* layout */
+.title {
+    top: 15vh;
+    left: 10vw;
+    width: 80vw;
+    height: 10vh;
+}
+.title h4, .title p {
+    text-align: center;
+}
+.title h4 {
+    color: #ff6;
+    font-size: 5vh;
+}
+.gallery {
+    top: 25vh;
+    left: 10vw;
+    width: 80vw;
+    height: 60vh;
+}
+.gallery img:hover {
+    filter: brightness(1.5);
+}
+.gallery img {
+    height: 23%;
+    margin: 1%;
+    border: 0.5% solid #222;
+    border-radius: 5vw;
+}
+@media (min-width: 125vh) {
+    .title {
+        top: 18vh;
+    }    
+    .gallery {
+        top: 30vh;
+    }
+    .gallery img {
+        height: 31%;
+        border-radius: 5vh;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}

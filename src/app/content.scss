@@ -38,7 +38,7 @@
 
 /* Standard styles */
 .text h4 {
-    font-family: sans-serif;
+    font-family: PlayfairDisplay;
 }
 mat-icon {    
     height: auto;
@@ -46,6 +46,8 @@ mat-icon {
 }
 .text button,
 .text a {
+    font-family: PlayfairDisplay;
+
     cursor: pointer;
     border-radius: 2vh;
     margin: auto;

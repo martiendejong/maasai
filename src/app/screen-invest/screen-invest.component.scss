@@ -1,0 +1,95 @@
+/* layout */
+.text {
+    top: 25vh;
+    left: 10vw;
+    width: 40vw;
+    height: 45vh;
+}
+.image {
+    top: 25vh;
+    left: 62vw;
+    width: 29vw;
+    height: 51vh;
+}
+/* portrait */
+@media (min-height: 130vw) {
+
+    .text {
+       top: 10vh;
+       left: 15vw;
+       width: 65vw;
+       height: 30vh;
+   }
+   
+    .image {
+       top: 53vh;
+       left: 15vw;
+       width: 71vw;
+       height: 36vh;
+   }  
+}
+
+/* button colors */
+.text button {
+    background: linear-gradient(135deg, #0af, #39f);
+    box-shadow: 0 1vw 1.5vw rgba(96, 96, 255, 0.6);
+}
+ .text button:hover {
+    background: linear-gradient(135deg, #3af, #69f);
+}
+
+
+
+
+
+
+/* payment methods */
+.payment-methods {
+    margin-bottom: 2vh;
+}
+
+.payment-methods img {
+    height: 5vh;
+}
+
+.button-label {
+    position: relative;
+    margin-right: 1vh;
+    cursor: pointer;
+}
+
+.hidden-radio {
+    position: absolute;
+    opacity: 0;
+}
+
+.button-label img {
+    border: 2px solid transparent;
+    padding: 1vh;
+    background: linear-gradient(to bottom right, #fff, #ccc);
+    transition: border-color 0.3s ease;
+}
+
+.button-label input[type="radio"]:checked + img {
+    border-color: blue; /* Change to your desired selected button style */
+}
+
+@media (max-width: 80vh) {
+    .payment-methods {
+        margin-bottom: 1vh;
+    }
+    .payment-methods img {
+        padding: 0.1vh;
+        height: 4vh;
+    }
+}
+
+.smalltext {
+    font-size: 2.4vh !important;
+}
+
+@media (max-width: 80vh) {
+    .smalltext {
+        font-size: 1.8vh !important;
+    }
+}

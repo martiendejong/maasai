@@ -1,0 +1,48 @@
+/* layout */
+.text {
+    top: 25vh;
+    left: 45vw;
+    width: 40vw;
+    height: 45vh;
+}
+.image {
+    top: 25vh;
+    left: 10vw;
+    width: 28vw;
+    height: 51vh;
+}
+/* portrait */
+@media (min-height: 130vw) {
+    .text {
+        top: 53vh;
+        left: 15vw;
+        width: 65vw;
+        height: 30vh;
+    }
+    
+    .image {
+        top: 10vh;
+        left: 15vw;
+        width: 71vw;
+        height: 36vh;
+    }    
+}
+
+.text a {
+    width: 30%;
+}
+
+@media (min-height: 130vw) {
+    .text a {
+        display: block;
+        width: 70%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .text a:first-of-type {
+        margin-top: 0%;
+    }
+    .text a:last-of-type {
+        margin-bottom: 0%;
+    }
+}

@@ -22,6 +22,14 @@ import { ScreenInvestComponent } from './screen-invest/screen-invest.component';
 import { ScreenAnimalslistComponent } from './screen-animalslist/screen-animalslist.component';
 import { ScreenAnimaldetailsComponent } from './screen-animaldetails/screen-animaldetails.component';
 import { FittextDirective } from './fittext.directive';
+import { ScreenSophyStoryComponent } from './screen-sophy-story/screen-sophy-story.component';
+import { ScreenNkumumSolarStoryComponent } from './screen-nkumum-solar-story/screen-nkumum-solar-story.component';
+import { ScreenMoranPowerComponent } from './screen-moran-power/screen-moran-power.component';
+import { ScreenMaasaiHandcraftedComponent } from './screen-maasai-handcrafted/screen-maasai-handcrafted.component';
+import { ScreenSafariPitchComponent } from './screen-safari-pitch/screen-safari-pitch.component';
+import { ScreenSolarPitchComponent } from './screen-solar-pitch/screen-solar-pitch.component';
+import { ScreenRealestatePitchComponent } from './screen-realestate-pitch/screen-realestate-pitch.component';
+import { ScreenEffectiveAltruismComponent } from './screen-effective-altruism/screen-effective-altruism.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,15 @@ import { FittextDirective } from './fittext.directive';
     ScreenInvestComponent,
     ScreenAnimalslistComponent,
     ScreenAnimaldetailsComponent,
-    FittextDirective
+    FittextDirective,
+    ScreenSophyStoryComponent,
+    ScreenNkumumSolarStoryComponent,
+    ScreenMoranPowerComponent,
+    ScreenMaasaiHandcraftedComponent,
+    ScreenSafariPitchComponent,
+    ScreenSolarPitchComponent,
+    ScreenRealestatePitchComponent,
+    ScreenEffectiveAltruismComponent
   ],
   imports: [
     BrowserModule,

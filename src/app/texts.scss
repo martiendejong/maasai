@@ -1,0 +1,264 @@
+/* sizes */
+
+/* regular sized */
+/* landscape wide */
+.text, 
+.text h4,
+.text button,
+.text a, 
+.text mat-icon {
+    font-size: 3.4vh;
+}
+.text p {
+    font-size: 2.8vh;
+}
+.text button:hover,
+.text a:hover {
+    font-size: 3.8vh;
+}
+/* landscape 3:2 */
+@media (max-width: 150vh) {
+    .text, 
+    .text h4,
+    .text button,
+    .text a, 
+    .text mat-icon {
+        font-size: 3.1vh;
+    }
+    .text p {
+        font-size: 2.5vh;
+    }
+    .text button:hover,
+    .text a:hover {
+        font-size: 3.5vh;
+    }
+}
+// landscape 5:4
+@media (max-width: 125vh) {
+    .text, 
+    .text h4,
+    .text button,
+    .text a, 
+    .text mat-icon {
+        font-size: 2.8vh;
+    }
+    .text p {
+        font-size: 2.3vh;
+    }
+    .text button:hover,
+    .text a:hover {
+        font-size: 3.3vh;
+    }
+}
+// portrait 4:5
+@media (max-width: 80vh) {
+    .text, 
+    .text h4,
+    .text button,
+    .text a, 
+    .text mat-icon {
+        font-size: 2.4vh;
+    }
+    .text p {
+        font-size: 2vh;
+    }
+    .text button:hover,
+    .text a:hover {
+        font-size: 2.8vh;
+    }
+}
+// portrait 2:3
+@media (max-width: 66vh) {
+    .text, 
+    .text h4,
+    .text button,
+    .text a, 
+    .text mat-icon {
+        font-size: 2.1vh;
+    }
+    .text p {
+        font-size: 1.8vh;
+    }
+    .text button:hover,
+    .text a:hover {
+        font-size: 2.3vh;
+    }
+}
+
+.text.biggerfont h4,
+.text.biggerfont a,
+.text.biggerfont button,
+.text h4.biggerfont,
+.text a.biggerfont,
+.text button.biggerfont, 
+.text.biggerfont mat-icon, 
+.text .biggerfont mat-icon {
+    font-size: 3.6vh;
+}
+.text.biggerfont p,
+.text p.biggerfont {
+    font-size: 3.1vh;
+}
+.text.biggerfont button:hover,
+.text.biggerfont a:hover,
+.text button.biggerfont:hover,
+.text a.biggerfont:hover {
+    font-size: 4vh;
+}
+@media (max-width: 150vh) {
+    .text.biggerfont h4,
+    .text.biggerfont a,
+    .text.biggerfont button,
+    .text h4.biggerfont,
+    .text a.biggerfont,
+    .text button.biggerfont {
+        font-size: 3.5vh;
+    }
+    .text.biggerfont p,
+    .text p.biggerfont {
+        font-size: 3vh;
+    }
+    .text.biggerfont button:hover,
+    .text.biggerfont a:hover,
+    .text button.biggerfont:hover,
+    .text a.biggerfont:hover {
+        font-size: 3.9vh;
+    }
+}
+@media (max-width: 125vh) {
+    .text.biggerfont h4,
+    .text.biggerfont a,
+    .text.biggerfont button,
+    .text h4.biggerfont,
+    .text a.biggerfont,
+    .text button.biggerfont {
+        font-size: 3.2vh;
+    }
+    .text.biggerfont p,
+    .text p.biggerfont {
+        font-size: 2.8vh;
+    }
+    .text.biggerfont button:hover,
+    .text.biggerfont a:hover,
+    .text button.biggerfont:hover,
+    .text a.biggerfont:hover {
+        font-size: 3.6vh;
+    }
+}
+@media (max-width: 80vh) {
+    .text.biggerfont h4,
+    .text.biggerfont a,
+    .text.biggerfont button,
+    .text h4.biggerfont,
+    .text a.biggerfont,
+    .text button.biggerfont {
+        font-size: 2.8vh;
+    }
+    .text.biggerfont p,
+    .text p.biggerfont {
+        font-size: 2.4vh;
+    }
+    .text.biggerfont button:hover,
+    .text.biggerfont a:hover,
+    .text button.biggerfont:hover,
+    .text a.biggerfont:hover {
+        font-size: 3.2vh;
+    }
+}
+@media (max-width: 60vh) {
+    .text.biggerfont h4,
+    .text.biggerfont a,
+    .text.biggerfont button,
+    .text h4.biggerfont,
+    .text a.biggerfont,
+    .text button.biggerfont {
+        font-size: 2.2vh;
+    }
+    .text.biggerfont p,
+    .text p.biggerfont {
+        font-size: 1.9vh;
+    }
+    .text.biggerfont button:hover,
+    .text.biggerfont a:hover,
+    .text button.biggerfont:hover,
+    .text a.biggerfont:hover {
+        font-size: 2.6vh;
+    }
+}
+
+/* margins */
+.text button,
+.text a {
+    margin-top: 5vh;
+}
+.text p, .text h1, .text h2, .text h3, .text h4 {
+    margin-bottom: 2vh;
+}
+@media (max-width: 80vh) {
+    .text button,
+    .text a {
+        margin-top: 2vh !important;
+    }
+}
+@media (max-width: 66vh) {
+    .text h4,
+    .text p {
+        margin-bottom: 0.5vh !important;
+    }
+    .text button,
+    .text a {
+        margin-top: 1vh !important;
+    }
+}
+
+@media (max-width: 125vh) {
+    .text.biggerfont button,
+    .text.biggerfont a,
+    .text button.biggerfont,
+    .text a.biggerfont {
+        margin-top: 2vh !important;
+    }
+    .text.biggerfont h4,
+    .text.biggerfont p,
+    .text h4.biggerfont,
+    .text p.biggerfont {
+        margin-bottom: 1vh !important;
+    }
+}
+@media (max-width: 80vh) {
+    .text.biggerfont button,
+    .text.biggerfont a,
+    .text button.biggerfont,
+    .text a.biggerfont {
+        margin-top: 2vh !important;
+    }
+    .text.biggerfont h4,
+    .text.biggerfont p,
+    .text h4.biggerfont,
+    .text p.biggerfont {
+        margin-bottom: 1vh !important;
+    }
+}
+@media (max-width: 66vh) {
+    .text.biggerfont button,
+    .text.biggerfont a,
+    .text button.biggerfont,
+    .text a.biggerfont {
+        margin-top: 1vh !important;
+    }
+    .text.biggerfont h4,
+    .text.biggerfont p,
+    .text h4.biggerfont,
+    .text p.biggerfont {
+        margin-bottom: 0.5vh !important;
+    }
+}
+
+.text input {
+    font-size: 3.5vh;
+}
+@media (max-width: 80vh) {
+    .text input {
+        font-size: 2.4vh;
+    }
+}
