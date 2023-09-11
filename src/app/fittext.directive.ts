@@ -1,9 +1,9 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[fittext]'
 })
-export class FittextDirective {
+export class FittextDirective  {
 
   constructor(private el: ElementRef) {}
 
@@ -14,13 +14,11 @@ export class FittextDirective {
       return;
     }
     const elements = text.querySelectorAll('*');
-    //const container = document.getElementById('textContainer') as HTMLElement;
-    //const text = document.getElementById('fitText') as HTMLElement;
-    
+   
     let fontSize = 1;
     text.style.fontSize = fontSize + 'px';
     elements.forEach(input => (input as HTMLElement).style.fontSize = fontSize + 'px');
-    
+
     var iterations = 0;
     // make text bigger until it reaches or overflows the container horizontally or vertically
     while (this.textFitsContainer(text, container) && iterations < 100) {
@@ -47,7 +45,9 @@ export class FittextDirective {
     const textMargin = parseFloat(textComputedStyle.marginTop) + parseFloat(textComputedStyle.marginBottom); 
     const textPadding = parseFloat(textComputedStyle.paddingTop) + parseFloat(textComputedStyle.paddingBottom); 
     
-    return text.scrollWidth <= containerWidth && text.scrollHeight + textMargin + textPadding <= containerHeight;
+    const padding = 5; // the padding is added because sometimes the measurements dont work without it
+
+    return text.scrollWidth <= containerWidth + padding && text.scrollHeight + textMargin + textPadding <= containerHeight + padding;
   }
 
   @HostListener('window:resize')
@@ -55,7 +55,13 @@ export class FittextDirective {
     this.adjustFontSize();
   }
 
-  ngAfterViewInit() {
+  @HostListener('window:load')
+  onLoad() {
+    this.t();
+    console.log('load');
+  }
+
+  t() {
     this.adjustFontSize();
     var me = this;
     setTimeout(() => me.adjustFontSize(), 10);
