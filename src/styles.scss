@@ -48,3 +48,75 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 .visible {
     display: block;
 }
+
+/*
+    PAGE LAYOUTS
+*/
+
+/* layout */
+.layout1 .text {
+    top: 25vh;
+    left: 51vw;
+    width: 38vw;
+    height: 55vh;
+}
+.layout1 .image {
+    top: 25vh;
+    left: 5vw;
+    width: 41vw;
+    height: 61vh;
+}
+/* portrait */
+@media (min-height: 130vw) {
+    .layout1 .text {
+        top: 48vh;
+        left: 8vw;
+        width: 79vw;
+        height: 38vh;
+    }
+    
+    .layout1 .image {
+        top: 12vh;
+        left: 8vw;
+        width: 85vw;
+        height: 32vh;
+    }    
+}
+
+/* layout */
+.layout2 .text {
+    top: 25vh;
+    left: 5vw;
+    width: 38vw;
+    height: 55vh;
+}
+.layout2 .image {
+    top: 25vh;
+    left: 54vw;
+    width: 41vw;
+    height: 61vh;
+}
+/* portrait */
+@media (min-height: 130vw) {
+    .layout2 .text {
+        top: 12vh;
+        left: 8vw;
+        width: 79vw;
+        height: 38vh;
+    }
+    
+    .layout2 .image {
+        top: 60vh;
+        left: 8vw;
+        width: 85vw;
+        height: 32vh;
+    }    
+}
+
+/* Media query for devices with high pixel density and small screen width */
+@media ((-webkit-min-device-pixel-ratio: 2) or (max-width: 768px)) and (min-width: 100vh) {
+    .layout1 .text, .layout1 .image,
+    .layout2 .text, .layout2 .image {
+        top: 20vh;
+    }
+}

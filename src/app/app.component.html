@@ -4,71 +4,90 @@
 
 <div class="page" id="home">
 
-  <div class="content" id="investment-pitch">
+  <div class="content layout1" id="investment-pitch">
     <app-screen-pitch-invest />
     <app-button-nextpage to="goat-pitch" />
   </div>
 
-  <div class="content" id="goat-pitch">
+  <div class="content layout2" id="goat-pitch">
     <app-screen-pitch-goat />
     <app-button-prevpage to="investment-pitch" />
     <app-button-nextpage to="about-us" />
   </div>
 
-  <div class="content" id="giftshop-pitch">
+  <div class="content layout1" id="maxwell">
+    <app-screen-maxwellstory />
+    <app-button-prevpage to="investment-pitch" />
+    <app-button-nextpage to="about-us" />
+  </div>
+
+  <div class="content layout1" id="giftshop-pitch">
     <app-screen-maasai-handcrafted />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
-  <div class="content" id="safari-pitch">
-    <app-screen-safari-pitch />
-    <app-button-prevpage to="goat-pitch" />
-    <app-button-nextpage to="moranpower" />
+  <div class="content layout2" id="moranpower">
+    <app-screen-moran-power />
+    <app-button-prevpage to="giftshop-pitch" />
+    <app-button-nextpage to="animals-list" />
   </div>
 
-  <div class="content" id="solar-pitch">
+  <div class="content layout2" id="nkumum">
+    <app-screen-nkumum-solar-story />
+    <app-button-prevpage to="investment-pitch" />
+    <app-button-nextpage to="about-us" />
+  </div>
+
+  <div class="content layout1" id="solar-pitch">
     <app-screen-solar-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
-  <div class="content" id="realestate-pitch">
+  <div class="content layout2" id="safari-pitch">
+    <app-screen-safari-pitch />
+    <app-button-prevpage to="goat-pitch" />
+    <app-button-nextpage to="moranpower" />
+  </div>
+
+  <div class="content layout2" id="bedandbreakfast-pitch">
+    <app-screen-bedandbreakfast-pitch />
+    <app-button-prevpage to="goat-pitch" />
+    <app-button-nextpage to="moranpower" />
+  </div>
+
+  <div class="content layout2" id="realestate-pitch">
     <app-screen-realestate-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
-  <div class="content" id="about-us">
+  <div class="content layout1" id="about-us">
     <app-screen-martienandsophy />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="invest" />
   </div>
 
-  <div class="content" id="moranpower">
-    <app-screen-moran-power />
-    <app-button-prevpage to="giftshop-pitch" />
-    <app-button-nextpage to="animals-list" />
-  </div>
-
-  <div class="content" id="moranpower">
-    <app-screen-sophy-story />
-    <app-button-prevpage to="giftshop-pitch" />
-    <app-button-nextpage to="animals-list" />
-  </div>
-
-  <div class="content" id="moranpower">
-    <app-screen-moran-power />
-    <app-button-prevpage to="giftshop-pitch" />
-    <app-button-nextpage to="animals-list" />
-  </div>
-
-  <div class="content" id="invest">
+  <div class="content layout1" id="invest">
     <app-screen-invest />
     <app-button-prevpage to="about-us" />
     <app-button-nextpage to="giftshop-pitch" />
   </div>
 
+  <!-- values -->
+
+  <div class="content layout2" id="effectivealtruism">
+    <app-screen-effectivealtruism />
+    <app-button-prevpage to="about-us" />
+    <app-button-nextpage to="giftshop-pitch" />
+  </div>
+
+  <div class="content layout2" id="stakeholdercapitalism">
+    <app-screen-stakeholdercapitalism />
+    <app-button-prevpage to="about-us" />
+    <app-button-nextpage to="giftshop-pitch" />
+  </div>
 
 
 

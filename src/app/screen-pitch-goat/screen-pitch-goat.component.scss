@@ -1,33 +1,33 @@
-/* layout */
-.text {
-    top: 25vh;
-    left: 10vw;
-    width: 40vw;
-    height: 45vh;
-}
- .image {
-    top: 25vh;
-    left: 62vw;
-    width: 29vw;
-    height: 51vh;
-}
-/* portrait */
-@media (min-height: 130vw) {
+// /* layout */
+// .text {
+//     top: 25vh;
+//     left: 10vw;
+//     width: 40vw;
+//     height: 45vh;
+// }
+//  .image {
+//     top: 25vh;
+//     left: 62vw;
+//     width: 29vw;
+//     height: 51vh;
+// }
+// /* portrait */
+// @media (min-height: 130vw) {
 
-    .text {
-       top: 10vh;
-       left: 15vw;
-       width: 65vw;
-       height: 30vh;
-   }
+//     .text {
+//        top: 10vh;
+//        left: 15vw;
+//        width: 65vw;
+//        height: 30vh;
+//    }
    
-    .image {
-       top: 53vh;
-       left: 15vw;
-       width: 71vw;
-       height: 36vh;
-   }  
-}
+//     .image {
+//        top: 53vh;
+//        left: 15vw;
+//        width: 71vw;
+//        height: 36vh;
+//    }  
+// }
 
 /* button colors */
 .text button, .text a {

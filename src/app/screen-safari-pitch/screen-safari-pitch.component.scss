@@ -1,37 +1,9 @@
-/* layout */
-.text {
-    top: 25vh;
-    left: 45vw;
-    width: 40vw;
-    height: 45vh;
-}
-.image {
-    top: 25vh;
-    left: 10vw;
-    width: 28vw;
-    height: 51vh;
-}
-/* portrait */
-@media (min-height: 130vw) {
-    .text {
-        top: 53vh;
-        left: 15vw;
-        width: 65vw;
-        height: 30vh;
-    }
-    
-    .image {
-        top: 10vh;
-        left: 15vw;
-        width: 71vw;
-        height: 36vh;
-    }    
-}
-
 .text a {
-    width: 30%;
+    width: 40%;
 }
-
+.text a:first-of-type {
+    margin-bottom: 1%;
+}
 @media (min-height: 130vw) {
     .text a {
         display: block;

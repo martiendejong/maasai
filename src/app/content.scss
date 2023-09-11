@@ -17,6 +17,8 @@
 }
 .text {
     text-align: center;
+    display: flex;
+    align-items: center;    
 }
 .text, .image {
     z-index: 10000;
@@ -31,8 +33,6 @@
 .image {
     background-color: #8B4513;
     padding: 0;
-    width: auto;
-    height: auto;
     object-fit: cover;
 }
 
@@ -98,4 +98,11 @@ input {
 
 .text p, .text h1, .text h2, .text h3, .text h4 {
     margin-bottom: 2%;
+}
+
+.text-child * {
+    margin-bottom: 2%;
+}
+.text-child *:last-child {
+    margin-bottom: 0%;
 }

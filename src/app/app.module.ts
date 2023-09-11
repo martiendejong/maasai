@@ -30,6 +30,10 @@ import { ScreenSafariPitchComponent } from './screen-safari-pitch/screen-safari-
 import { ScreenSolarPitchComponent } from './screen-solar-pitch/screen-solar-pitch.component';
 import { ScreenRealestatePitchComponent } from './screen-realestate-pitch/screen-realestate-pitch.component';
 import { ScreenEffectiveAltruismComponent } from './screen-effective-altruism/screen-effective-altruism.component';
+import { ScreenStakeholdercapitalismComponent } from './screen-stakeholdercapitalism/screen-stakeholdercapitalism.component';
+import { ScreenEffectivealtruismComponent } from './screen-effectivealtruism/screen-effectivealtruism.component';
+import { ScreenMaxwellstoryComponent } from './screen-maxwellstory/screen-maxwellstory.component';
+import { ScreenBedandbreakfastPitchComponent } from './screen-bedandbreakfast-pitch/screen-bedandbreakfast-pitch.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { ScreenEffectiveAltruismComponent } from './screen-effective-altruism/sc
     ScreenSafariPitchComponent,
     ScreenSolarPitchComponent,
     ScreenRealestatePitchComponent,
-    ScreenEffectiveAltruismComponent
+    ScreenEffectiveAltruismComponent,
+    ScreenStakeholdercapitalismComponent,
+    ScreenEffectivealtruismComponent,
+    ScreenMaxwellstoryComponent,
+    ScreenBedandbreakfastPitchComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,9 @@ export class FittextDirective {
   adjustFontSize() {
     const container = this.el.nativeElement as HTMLElement;
     const text = container.children[0] as HTMLElement;
+    if(text == undefined) {
+      return;
+    }
     const elements = text.querySelectorAll('*');
     //const container = document.getElementById('textContainer') as HTMLElement;
     //const text = document.getElementById('fitText') as HTMLElement;
