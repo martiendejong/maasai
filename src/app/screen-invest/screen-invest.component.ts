@@ -7,4 +7,34 @@ import { Component } from '@angular/core';
 })
 export class ScreenInvestComponent {
   amount: number = 100;
+  submitForm(){
+    var form = document.getElementById('contactForm') as HTMLFormElement;
+    if(form == undefined) return;
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData as any);
+
+    const formUrl = 'https://maasaiinvestments.online/contact.php';
+
+    // Send a POST request to the Google Form submission URL
+    fetch(formUrl, {
+        method: 'POST',
+        body: params,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    })
+    .then(response => {
+        if (response.status === 200) {
+            alert("Thank you! We will contact you shortly.");
+        } else {
+            alert("Form submission failed. Please try to send an email to info@maasaiinvestments.online instead.");
+        }
+        window.location.href = '/';
+    })
+    .catch(error => {
+      console.error("Error submitting form:", error);
+      alert("Form submission failed. Please try to send an email to info@maasaiinvestments.online instead.");
+      window.location.href = '/';
+    });
+  }
 }

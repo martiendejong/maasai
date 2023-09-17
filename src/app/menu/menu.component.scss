@@ -63,7 +63,13 @@
 
     #top-menu {
         display: none !important;
-    }
+    }    
+}
+
+@media(min-width: 130vh) {
+    #fullscreen-menu .items {
+        margin-top: 20vh !important;
+    }    
 }
 
 #fullscreen-menu {

@@ -1,6 +1,13 @@
 <div class="text biggerfont" fittext>
     <div class="text-child">
-        <h4>Choose your investment</h4>
+        <h4>Thank you</h4>
+        <p>Thank you for taking the time to read our story. Having your support means a lot to us.</p>
+        <p>We strongly plead you to make even a small investment and take a step towards improving the lives of others while making a modest gain.</p>
+        <p>We are working on integrating a payment processor here.</p>
+        <p>For now please contact us by mail info@maasaiinvestments.online phone +31633984381 or through this form.</p>
+
+
+        <!-- <h4>Choose your investment</h4>
         <p class="smalltext">Payment method</p>
         <div class="payment-methods">
             <label class="button-label">
@@ -22,8 +29,25 @@
         </div>
         <span class="smalltext">Amount (in dollars)</span>
         <input [value]="amount" />
-        <button>Invest Now</button>
+        <button>Invest Now</button> -->
     </div>
 </div>
-<img class="image portrait" src="assets/invest_wide.png" />
-<img class="image landscape" src="assets/invest.png" />
+
+<div class="text" fittext>
+    <div class="text-child">
+        <h4>Get in Touch</h4>
+        <p>We will reach out for you as soon as possible.</p><br />
+        <form id="contactForm">
+            <label>Your Name:</label><br /><input name="name" type="text" /><br />
+            <label>Phone:</label><br /><input name="email" type="text" /><br />
+            <label>Email:</label><br /><input name="phone" type="text" /><br />
+            <input type="hidden" name="security" value="Ver3tig!" />
+            <span style="display: block; height: 2%; color: transparent; text-wrap: nowrap;">Invisible sentence to control the form text size.</span>
+            <button type="button" class="contact" (click)="submitForm()">Send Contact Request</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- <img class="image portrait" src="assets/invest_wide.png" />
+<img class="image landscape" src="assets/invest.png" /> -->

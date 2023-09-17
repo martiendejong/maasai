@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScreenMoranPoweryComponent } from './screen-moran-power.component';
+import { ScreenMoranPowerComponent } from './screen-moran-power.component';
 
 describe('ScreenMoranPoweryComponent', () => {
-  let component: ScreenMoranPoweryComponent;
-  let fixture: ComponentFixture<ScreenMoranPoweryComponent>;
+  let component: ScreenMoranPowerComponent;
+  let fixture: ComponentFixture<ScreenMoranPowerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ScreenMoranPoweryComponent]
+      declarations: [ScreenMoranPowerComponent]
     });
-    fixture = TestBed.createComponent(ScreenMoranPoweryComponent);
+    fixture = TestBed.createComponent(ScreenMoranPowerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

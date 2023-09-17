@@ -64,3 +64,17 @@
 //         font-size: 1.8vh !important;
 //     }
 // }
+
+label {
+    width: 25%;    
+}
+input {
+    width: 90%;
+}
+button {
+    width: 70%;
+}
+
+label, input {
+    display: inline-block;
+}

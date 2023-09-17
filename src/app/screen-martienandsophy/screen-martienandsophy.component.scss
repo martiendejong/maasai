@@ -8,3 +8,7 @@
 .text a:hover {
     background: linear-gradient(135deg, #226422, #229933);
 }
+.text-child a:last-of-type {
+    margin-left: 10%;
+    margin-right: 10%;   
+}

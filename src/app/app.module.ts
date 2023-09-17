@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BaseComponent } from './base/base.component';
 
+import { Aos } from "aos";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonPrevpageComponent } from './button-prevpage/button-prevpage.component';
 import { ButtonNextpageComponent } from './button-nextpage/button-nextpage.component';
@@ -29,7 +31,6 @@ import { ScreenMaasaiHandcraftedComponent } from './screen-maasai-handcrafted/sc
 import { ScreenSafariPitchComponent } from './screen-safari-pitch/screen-safari-pitch.component';
 import { ScreenSolarPitchComponent } from './screen-solar-pitch/screen-solar-pitch.component';
 import { ScreenRealestatePitchComponent } from './screen-realestate-pitch/screen-realestate-pitch.component';
-import { ScreenEffectiveAltruismComponent } from './screen-effective-altruism/screen-effective-altruism.component';
 import { ScreenStakeholdercapitalismComponent } from './screen-stakeholdercapitalism/screen-stakeholdercapitalism.component';
 import { ScreenEffectivealtruismComponent } from './screen-effectivealtruism/screen-effectivealtruism.component';
 import { ScreenMaxwellstoryComponent } from './screen-maxwellstory/screen-maxwellstory.component';
@@ -60,7 +61,6 @@ import { ScreenBedandbreakfastPitchComponent } from './screen-bedandbreakfast-pi
     ScreenSafariPitchComponent,
     ScreenSolarPitchComponent,
     ScreenRealestatePitchComponent,
-    ScreenEffectiveAltruismComponent,
     ScreenStakeholdercapitalismComponent,
     ScreenEffectivealtruismComponent,
     ScreenMaxwellstoryComponent,

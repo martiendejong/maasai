@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'MaasaiInvestmentsWebsite';
 
   ngOnInit(): void {
+
     var me = this;
     window.addEventListener('resize', () => { me.handleAddressBarOnMobileDevice() });   
     if(me.hasSmallScreen() || me.isMobileBrowser()) {

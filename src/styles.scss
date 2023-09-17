@@ -60,6 +60,12 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 38vw;
     height: 55vh;
 }
+.layout1 .text:nth-child(2) {
+    top: 25vh;
+    left: 5vw;
+    width: 35vw;
+    height: 55vh;
+}
 .layout1 .image {
     top: 25vh;
     left: 5vw;
@@ -74,7 +80,12 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
         width: 79vw;
         height: 38vh;
     }
-    
+    .layout1 .text:nth-child(2) {
+        top: 12vh;
+        left: 8vw;
+        width: 79vw;
+        height: 26vh;
+    }        
     .layout1 .image {
         top: 12vh;
         left: 8vw;
@@ -88,6 +99,12 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
     top: 25vh;
     left: 5vw;
     width: 38vw;
+    height: 55vh;
+}
+.layout2 .text:nth-child(2) {
+    top: 25vh;
+    left: 54vw;
+    width: 35vw;
     height: 55vh;
 }
 .layout2 .image {
@@ -104,7 +121,12 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
         width: 79vw;
         height: 38vh;
     }
-    
+    .layout2 .text:nth-child(2) {
+        top: 60vh;
+        left: 8vw;
+        width: 79vw;
+        height: 26vh;
+    }       
     .layout2 .image {
         top: 60vh;
         left: 8vw;
@@ -117,6 +139,7 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 @media ((-webkit-min-device-pixel-ratio: 2) or (max-width: 768px)) and (min-width: 100vh) {
     .layout1 .text, .layout1 .image,
     .layout2 .text, .layout2 .image {
-        top: 20vh;
+        top: 20vh !important;
     }
 }
+

@@ -4,100 +4,122 @@
 
 <div class="page" id="home">
 
-  <div class="content layout1" id="investment-pitch">
+  <div class="content layout2" id="investment-pitch">
+    <img src="assets/background.jpg" class="background-image" />
     <app-screen-pitch-invest />
     <app-button-nextpage to="goat-pitch" />
   </div>
 
-  <div class="content layout2" id="goat-pitch">
+  <div class="content layout1" id="goat-pitch">
+    <img src="assets/mainbackground2.jpg" class="background-image" />
     <app-screen-pitch-goat />
     <app-button-prevpage to="investment-pitch" />
+    <app-button-nextpage to="maxwell" />
+  </div>
+
+  <div class="content layout2" id="maxwell">
+    <img src="assets/mainbackground.jpg" class="background-image" />
+    <app-screen-maxwellstory />
+    <app-button-prevpage to="goat-pitch" />
+    <app-button-nextpage to="moranpower" />
+  </div>
+
+  <div class="content layout1" id="moranpower">
+    <img src="assets/background.jpg" class="background-image" />
+    <app-screen-moran-power />
+    <app-button-prevpage to="maxwell" />
+    <app-button-nextpage to="nkumum" />
+  </div>
+
+  <div class="content layout2" id="nkumum">
+    <img src="assets/mainbackground2.jpg" class="background-image" />
+    <app-screen-nkumum-solar-story />
+    <app-button-prevpage to="moranpower" />
     <app-button-nextpage to="about-us" />
   </div>
 
-  <div class="content layout1" id="maxwell">
-    <app-screen-maxwellstory />
-    <app-button-prevpage to="investment-pitch" />
-    <app-button-nextpage to="about-us" />
+  <div class="content layout1" id="about-us">
+    <img src="assets/mainbackground.jpg" class="background-image" />
+    <app-screen-martienandsophy />
+    <app-button-prevpage to="nkumum" />
+    <app-button-nextpage to="effectivealtruism" />
   </div>
+
+  <div class="content layout2" id="effectivealtruism">
+    <img src="assets/mainbackground.jpg" class="background-image" />
+    <app-screen-effectivealtruism />
+    <app-button-prevpage to="about-us" />
+    <app-button-nextpage to="stakeholdercapitalism" />
+  </div>
+
+  <div class="content layout1" id="stakeholdercapitalism">
+    <img src="assets/mainbackground.jpg" class="background-image" />
+    <app-screen-stakeholdercapitalism />
+    <app-button-prevpage to="effectivealtruism" />
+    <app-button-nextpage to="invest" />
+  </div>
+
+  <div class="content layout2" id="invest">
+    <img src="assets/mainbackground.jpg" class="background-image" />
+    <app-screen-invest />
+    <app-button-prevpage to="stakeholdercapitalism" />
+    <!-- <app-button-nextpage to="giftshop-pitch" /> -->
+  </div>
+
+<!-- 
+
+
+
+
 
   <div class="content layout1" id="giftshop-pitch">
+    <img src="assets/mainbackground2.jpg" class="background-image" />
     <app-screen-maasai-handcrafted />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
-  <div class="content layout2" id="moranpower">
-    <app-screen-moran-power />
-    <app-button-prevpage to="giftshop-pitch" />
-    <app-button-nextpage to="animals-list" />
-  </div>
-
-  <div class="content layout2" id="nkumum">
-    <app-screen-nkumum-solar-story />
-    <app-button-prevpage to="investment-pitch" />
-    <app-button-nextpage to="about-us" />
-  </div>
-
   <div class="content layout1" id="solar-pitch">
+    <img src="assets/mainbackground.jpg" class="background-image" />
     <app-screen-solar-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
   <div class="content layout2" id="safari-pitch">
+    <img src="assets/mainbackground2.jpg" style="opacity: 0.05; position: absolute; width: 100%; height: 100%; top: 0" />
     <app-screen-safari-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
   <div class="content layout2" id="bedandbreakfast-pitch">
+    <img src="assets/mainbackground.jpg" style="opacity: 0.05; position: absolute; width: 100%; height: 100%; top: 0" />
     <app-screen-bedandbreakfast-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
   <div class="content layout2" id="realestate-pitch">
+    <img src="assets/mainbackground2.jpg" style="opacity: 0.05; position: absolute; width: 100%; height: 100%; top: 0" />
     <app-screen-realestate-pitch />
     <app-button-prevpage to="goat-pitch" />
     <app-button-nextpage to="moranpower" />
   </div>
 
-  <div class="content layout1" id="about-us">
-    <app-screen-martienandsophy />
-    <app-button-prevpage to="goat-pitch" />
-    <app-button-nextpage to="invest" />
-  </div>
 
-  <div class="content layout1" id="invest">
-    <app-screen-invest />
-    <app-button-prevpage to="about-us" />
-    <app-button-nextpage to="giftshop-pitch" />
-  </div>
-
-  <!-- values -->
-
-  <div class="content layout2" id="effectivealtruism">
-    <app-screen-effectivealtruism />
-    <app-button-prevpage to="about-us" />
-    <app-button-nextpage to="giftshop-pitch" />
-  </div>
-
-  <div class="content layout2" id="stakeholdercapitalism">
-    <app-screen-stakeholdercapitalism />
-    <app-button-prevpage to="about-us" />
-    <app-button-nextpage to="giftshop-pitch" />
-  </div>
 
 
 
   <div class="content" id="animals-list">
+    <img src="assets/mainbackground.jpg" style="opacity: 0.2; position: absolute; width: 100%; height: 100%; top: 0" />
     <app-screen-animalslist />
   </div>
 
   <div class="content" id="animal-details">
+    <img src="assets/mainbackground.jpg" style="opacity: 0.2; position: absolute; width: 100%; height: 100%; top: 0" />
     <app-screen-animaldetails />
     <app-button-prevpage to="animals-list" />
-  </div>
+  </div> -->
 
 </div>
