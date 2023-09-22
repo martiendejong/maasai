@@ -1,5 +1,7 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { BaseComponent } from '../base/base.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +16,10 @@ import { Component } from '@angular/core';
     ])
   ]
 })
-export class MenuComponent {
+export class MenuComponent extends BaseComponent {
+  constructor(translate: TranslateService) {
+    super(translate);
+  }
   public fullscreenMenuVisible = false;
   hideMenu() {
     this.fullscreenMenuVisible = false;

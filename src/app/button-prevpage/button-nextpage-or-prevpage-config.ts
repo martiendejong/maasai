@@ -1,5 +1,7 @@
 import { trigger, state, style, transition, animate } from "@angular/animations";
 import { Component, ElementRef, Input } from "@angular/core";
+import { BaseComponent } from "../base/base.component";
+import { TranslateService } from "@ngx-translate/core";
 
 export class ButtonNextpageOrPrevpageConfig {
     static arrowsVisible = false;
@@ -36,7 +38,10 @@ export class ButtonNextpageOrPrevpageConfig {
       ])
     ]
   })
-  export class ButtonNextPrev {
+  export class ButtonNextPrev extends BaseComponent {
+    constructor(translate: TranslateService) {
+      super(translate);
+    }
     @Input() to: string = '';    
     get navigationVisible() {
         return ButtonNextpageOrPrevpageConfig.navigationVisible;

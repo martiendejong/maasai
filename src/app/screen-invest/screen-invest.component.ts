@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
+import { BaseComponent } from '../base/base.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-screen-invest',
   templateUrl: './screen-invest.component.html',
   styleUrls: ['../content.scss', './screen-invest.component.scss']
 })
-export class ScreenInvestComponent {
+export class ScreenInvestComponent extends BaseComponent {
+  constructor(translate: TranslateService) {
+    super(translate);
+  }
   amount: number = 100;
   submitForm(){
     var form = document.getElementById('contactForm') as HTMLFormElement;

@@ -1,6 +1,7 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, ElementRef } from '@angular/core';
 import { ButtonNextPrev, ButtonNextpageOrPrevpageConfig } from '../button-prevpage/button-nextpage-or-prevpage-config';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-button-nextpage',
@@ -15,8 +16,8 @@ import { ButtonNextPrev, ButtonNextpageOrPrevpageConfig } from '../button-prevpa
   ]
 })
 export class ButtonNextpageComponent extends ButtonNextPrev {
-  constructor(public el: ElementRef) {
-    super();
+  constructor(public el: ElementRef, translate: TranslateService) {
+    super(translate);
   }
   override get navigationVisible() {    
       var rect = this.el.nativeElement.getBoundingClientRect();

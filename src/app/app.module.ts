@@ -33,6 +33,14 @@ import { ScreenStakeholdercapitalismComponent } from './screen-stakeholdercapita
 import { ScreenEffectivealtruismComponent } from './screen-effectivealtruism/screen-effectivealtruism.component';
 import { ScreenMaxwellstoryComponent } from './screen-maxwellstory/screen-maxwellstory.component';
 import { ScreenBedandbreakfastPitchComponent } from './screen-bedandbreakfast-pitch/screen-bedandbreakfast-pitch.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+// Create a loader for translations
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/translations/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -65,6 +73,14 @@ import { ScreenBedandbreakfastPitchComponent } from './screen-bedandbreakfast-pi
     ScreenBedandbreakfastPitchComponent
   ],
   imports: [
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

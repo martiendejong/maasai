@@ -1,12 +1,20 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from './base/base.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends BaseComponent implements OnInit {
+    constructor(translate: TranslateService) {
+      super(translate);
+      translate.setDefaultLang('nl'); // Set a default language
+      translate.use('nl'); // Use the default language      
+    }
+
   title = 'MaasaiInvestmentsWebsite';
 
   ngOnInit(): void {
