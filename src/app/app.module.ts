@@ -7,8 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BaseComponent } from './base/base.component';
 
-import { Aos } from "aos";
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonPrevpageComponent } from './button-prevpage/button-prevpage.component';
 import { ButtonNextpageComponent } from './button-nextpage/button-nextpage.component';
