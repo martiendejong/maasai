@@ -163,16 +163,15 @@ share-buttons button {
 }
 
 share-buttons fa-icon {
-    width: 5vw;
+    width: 5vw !important;
     background-color: #aaa;
     border-radius: 50%;
     display: block;
-    height: 5vw;
+    height: 5vw !important;
 }
 share-buttons fa-icon:hover {
     opacity: 0.8;
-    transform: scale(1.1);
-    background-color: #ffa;
+    transform: scale(1.2);
 }
 
 
