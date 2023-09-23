@@ -6,7 +6,6 @@
         <p>{{ 'invest-p-3' | translate }}</p>
         <p>{{ 'invest-p-4' | translate }}</p>
 
-
         <!-- <h4>{{ 'invest-h4-2' | translate }}</h4>
         <p class="smalltext">{{ 'invest-p-5' | translate }}</p>
         <div class="payment-methods">
@@ -38,16 +37,16 @@
         <h4>{{ 'invest-h4-3' | translate }}</h4>
         <p>{{ 'invest-p-6' | translate }}</p><br />
         <form id="contactForm">
-            <label>Your Name:</label><br /><input name="name" type="text" /><br />
-            <label>Phone:</label><br /><input name="email" type="text" /><br />
-            <label>Email:</label><br /><input name="phone" type="text" /><br />
+            <label style="width: 80%">{{ 'invest-label-name' | translate }}</label><br /><input name="name" type="text" /><br />
+            <label>{{ 'invest-label-phone' | translate }}</label><br /><input name="email" type="text" /><br />
+            <label>{{ 'invest-label-email' | translate }}</label><br /><input name="phone" type="text" /><br />
             <input type="hidden" name="security" value="Ver3tig!" />
-            <span style="display: block; height: 2%; color: transparent; text-wrap: nowrap;">{{ 'invest-span-2' | translate }}</span>
-            <button type="button" class="contact" (click)="submitForm()">Send Contact Request</button>
+            <span style="display: block; height: 2%; color: transparent">&nbsp;</span>
+            <button type="button" class="contact" (click)="submitForm()">{{ 'invest-button-submit' | translate }}</button>
         </form>
     </div>
 </div>
 
-
-<!-- <img class="image portrait" src="assets/invest_wide.png" />
-<img class="image landscape" src="assets/invest.png" /> -->
+<div data-aos="zoom-in" data-aos-offset="-50">
+    <share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#invest'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6"></share-buttons>
+</div>

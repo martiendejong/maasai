@@ -1,11 +1,17 @@
 import { AfterViewInit, Directive, ElementRef, HostListener } from '@angular/core';
+import { FittextService } from './fittext.service';
 
 @Directive({
   selector: '[fittext]'
 })
-export class FittextDirective  {
+export class FittextDirective {
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private fittextService: FittextService) { 
+    var me = this;
+    fittextService.adjustFontSize$.subscribe(() => {
+      me.t();
+    });    
+   }
 
   adjustFontSize() {
     const container = this.el.nativeElement as HTMLElement;
@@ -58,15 +64,12 @@ export class FittextDirective  {
   @HostListener('window:load')
   onLoad() {
     this.t();
-    console.log('load');
   }
 
   t() {
     this.adjustFontSize();
     var me = this;
     setTimeout(() => me.adjustFontSize(), 10);
-    setTimeout(() => me.adjustFontSize(), 100);
     setTimeout(() => me.adjustFontSize(), 1000);
-    setTimeout(() => me.adjustFontSize(), 10000);
   }
 }

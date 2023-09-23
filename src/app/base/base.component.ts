@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { FittextDirective } from '../fittext.directive';
 
 @Component({
   selector: 'app-base',
@@ -7,10 +8,18 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent {
-  constructor(private translate: TranslateService) {}
+  @ViewChildren(FittextDirective) fitTextDirectives: QueryList<FittextDirective> | undefined;
+  constructor(private translate: TranslateService) {  
+    var t = translate.currentLoader.getTranslation(translate.currentLang);
+    t.subscribe(() => {
+      this.fitTextDirectives?.forEach(directive => {
+        directive.adjustFontSize();
+      });
+    });
+  }
 
   // You can change the active language
   changeLanguage(language: string) {
-    this.translate.use(language);
+    this.translate.use(language);    
   }
 }

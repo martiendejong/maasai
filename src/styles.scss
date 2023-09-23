@@ -1,3 +1,5 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 @font-face {
     font-family: AmaticSCBold;
     src: url(assets/AmaticSC-Bold.ttf) format("truetype");
@@ -55,19 +57,19 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* layout */
 .layout1 .text {
-    top: 25vh;
+    top: 22vh;
     left: 51vw;
     width: 38vw;
     height: 55vh;
 }
 .layout1 .text:nth-child(2) {
-    top: 25vh;
+    top: 22vh;
     left: 5vw;
     width: 35vw;
     height: 55vh;
 }
 .layout1 .image {
-    top: 25vh;
+    top: 22vh;
     left: 5vw;
     width: 41vw;
     height: 61vh;
@@ -75,19 +77,19 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* portrait */
 @media (min-height: 130vw) {
     .layout1 .text {
-        top: 48vh;
+        top: 44vh;
         left: 8vw;
         width: 79vw;
         height: 38vh;
     }
     .layout1 .text:nth-child(2) {
-        top: 12vh;
+        top: 10vh;
         left: 8vw;
         width: 79vw;
         height: 26vh;
     }        
     .layout1 .image {
-        top: 12vh;
+        top: 10vh;
         left: 8vw;
         width: 85vw;
         height: 32vh;
@@ -96,19 +98,19 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* layout */
 .layout2 .text {
-    top: 25vh;
+    top: 22vh;
     left: 5vw;
     width: 38vw;
     height: 55vh;
 }
 .layout2 .text:nth-child(2) {
-    top: 25vh;
+    top: 22vh;
     left: 54vw;
     width: 35vw;
     height: 55vh;
 }
 .layout2 .image {
-    top: 25vh;
+    top: 22vh;
     left: 54vw;
     width: 41vw;
     height: 61vh;
@@ -116,19 +118,19 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* portrait */
 @media (min-height: 130vw) {
     .layout2 .text {
-        top: 12vh;
+        top: 10vh;
         left: 8vw;
         width: 79vw;
         height: 38vh;
     }
     .layout2 .text:nth-child(2) {
-        top: 60vh;
+        top: 56vh;
         left: 8vw;
         width: 79vw;
         height: 26vh;
     }       
     .layout2 .image {
-        top: 60vh;
+        top: 56vh;
         left: 8vw;
         width: 85vw;
         height: 32vh;
@@ -139,7 +141,65 @@ body, button { font-family: Roboto, "Helvetica Neue", sans-serif; }
 @media ((-webkit-min-device-pixel-ratio: 2) or (max-width: 768px)) and (min-width: 100vh) {
     .layout1 .text, .layout1 .image,
     .layout2 .text, .layout2 .image {
-        top: 20vh !important;
+        top: 18vh !important;
     }
 }
 
+
+
+
+share-buttons {
+    position: absolute;
+    bottom: 8vh;
+    z-index: 100000;
+    left: 5vw;    
+}
+
+share-buttons button {
+    opacity: .5;
+    margin: 0.5vw !important;
+    width: auto !important;
+    min-width: auto !important;
+}
+
+share-buttons fa-icon {
+    width: 5vw;
+    background-color: #aaa;
+    border-radius: 50%;
+    display: block;
+    height: 5vw;
+}
+share-buttons fa-icon:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    background-color: #ffa;
+}
+
+
+share-buttons svg {
+    height: 50% !important;
+    width: 50% !important;
+    margin-top: 25% !important;
+}
+
+@media ((-webkit-min-device-pixel-ratio: 2) or (max-width: 768px)) and (min-width: 100vh) {
+    share-buttons {
+        bottom: 8vh;
+    }
+}
+
+@media (min-height: 100vw) {
+    share-buttons button {
+        margin: 0.5vh;
+    }
+
+    share-buttons {
+        bottom: 6vh;
+        left: 8vw;
+    }
+
+    share-buttons fa-icon {
+        width: 5vh;
+        height: 5vh;
+    }
+}

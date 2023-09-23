@@ -36,6 +36,10 @@ import { ScreenBedandbreakfastPitchComponent } from './screen-bedandbreakfast-pi
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -70,7 +74,8 @@ export function createTranslateLoader(http: HttpClient) {
     ScreenStakeholdercapitalismComponent,
     ScreenEffectivealtruismComponent,
     ScreenMaxwellstoryComponent,
-    ScreenBedandbreakfastPitchComponent
+    ScreenBedandbreakfastPitchComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     HttpClientModule,
@@ -84,7 +89,9 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    ShareButtonsModule,
+    ShareIconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

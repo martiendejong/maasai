@@ -1,0 +1,14 @@
+<div class="language-selector">
+    <!-- Small square div with current language flag -->
+    <div class="flag" id="current-language">
+      <!-- Insert the flag image or flag icon here -->
+      <img src="assets/flags/{{localization.language.code}}.png" alt="{{localization.language.name}}" (click)="toggleFlagOptions()">
+    </div>
+  
+    <!-- Larger div with other flag options -->
+    <div class="flag-options" [hidden]="!showFlagOptions">
+      <div class="flag-option" *ngFor="let language of localization.pickLanguages()" (click)="selectLanguage(language.code)">
+        <img src="assets/flags/{{language.code}}.png" alt="{{language.name}}">
+      </div>
+    </div>
+  </div>
