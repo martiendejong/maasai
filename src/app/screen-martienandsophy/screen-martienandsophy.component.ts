@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-screen-martienandsophy',
@@ -8,8 +9,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['../content.scss', './screen-martienandsophy.component.scss']
 })
 export class ScreenMartienandsophyComponent extends BaseComponent {
-  constructor(translate: TranslateService) {
+  constructor(translate: TranslateService, private location: Location) {
     super(translate);
   }
 
+  onClosestToCenter(isClosest: boolean) {
+    if (isClosest) {
+      this.location.go('/about');
+    }
+  }
 }

@@ -40,6 +40,7 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
 
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { ClosestToCenterDirective } from './closest-to-center.directive';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -75,7 +76,8 @@ export function createTranslateLoader(http: HttpClient) {
     ScreenEffectivealtruismComponent,
     ScreenMaxwellstoryComponent,
     ScreenBedandbreakfastPitchComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    ClosestToCenterDirective
   ],
   imports: [
     HttpClientModule,
@@ -93,7 +95,7 @@ export function createTranslateLoader(http: HttpClient) {
     ShareButtonsModule,
     ShareIconsModule
   ],
-  providers: [],
+  providers: [Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

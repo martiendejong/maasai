@@ -21,7 +21,7 @@
     margin: 0.66vw auto;
     border-radius: 1vw;
     background-color: #ddd;
-    box-shadow: 0 2vw 3vw rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1vh 0.5vh rgba(0, 0, 0, 0.5);
     border: 0.2vw solid #222;
     transition: background-color 0.3s;
 }
@@ -39,15 +39,11 @@
     }
 
     .bar {
-        display: block;
         width: 5vh;
         height: 0.8vh;
         margin: 0.66vh auto;
         border-radius: 1vh;
-        background-color: #ddd;
-        box-shadow: 0 2vh 3vh rgba(0, 0, 0, 0.4);
         border: 0.2vh solid #222;
-        transition: background-color 0.3s;
     }
 }
 

@@ -1,5 +1,5 @@
-<a class="button next" href="#{{to}}" (click)="resetArrows()" *ngIf="navigationVisible">
-    <p>To the next page</p>
+<a class="button next" routerLink="{{to}}" (click)="resetArrows()" *ngIf="navigationVisible">
+    <p>{{ 'next-page' | translate }}</p>
     <div class="arrow down arrow1" [@fadeInAnimation]="arrowsVisible"></div>
     <div class="arrow down arrow2" [@fadeInAnimation]="arrowsVisible"></div>
     <div class="arrow down arrow3" [@fadeInAnimation]="arrowsVisible"></div>

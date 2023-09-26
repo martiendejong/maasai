@@ -1,13 +1,15 @@
-<div class="text biggerfont" fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text biggerfont" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <h4>{{ 'pitchgoat-h4-1' | translate }}</h4>
         <p>{{ 'pitchgoat-p-1' | translate }}</p>
         <p>{{ 'pitchgoat-p-2' | translate }}</p>
-        <a class="action" href="#invest">{{ 'pitchgoat-a-1' | translate }}</a>
-        <a class="info" href="#maxwell">{{ 'pitchgoat-a-2' | translate }}</a>
+        <a class="action" routerLink="invest">{{ 'pitchgoat-a-1' | translate }}</a>
+        <a class="info" routerLink="natumi">{{ 'pitchgoat-a-2' | translate }}</a>
     </div>
 </div>
 <img class="image portrait" src="assets/goat_wide.jpg" data-aos="zoom-in" data-aos-duration="1500" />
 <img class="image landscape" src="assets/goat.jpg" data-aos="zoom-in" data-aos-duration="1500" />
 
-<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#goat-pitch'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/goats'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

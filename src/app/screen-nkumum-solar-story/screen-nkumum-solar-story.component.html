@@ -1,11 +1,13 @@
-<div class="text" fittext fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <p>{{ 'nkumumsolarstory-p-1' | translate }}</p>
         <p>{{ 'nkumumsolarstory-p-2' | translate }}</p>
-        <a class="info" href="#about-us">{{ 'nkumumsolarstory-a-1' | translate }}</a>
+        <a class="info" routerLink="about">{{ 'nkumumsolarstory-a-1' | translate }}</a>
     </div>
 </div>
 <img class="image portrait" src="assets/moses-nkumum.jpg" fittext data-aos="zoom-in" data-aos-duration="1500" />
 <img class="image landscape" src="assets/moses-nkumum.jpg" fittext data-aos="zoom-in" data-aos-duration="1500" />
 
-<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#nkumum'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/nkumum'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

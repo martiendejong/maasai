@@ -2,4 +2,7 @@
 "invest-label-name": "Имя:",
 "invest-label-email": "Электронная почта:",
 "invest-label-phone": "Телефон:",
-"invest-button-submit": "Отправить запрос на контакт"}
+"invest-label-message": "Сообщение",
+"invest-button-submit": "Отправить запрос на контакт",
+"next-page": "На следующую страницу",
+  "prev-page": "На последнюю страницу"}

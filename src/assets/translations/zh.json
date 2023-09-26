@@ -2,4 +2,8 @@
 "invest-label-name": "姓名：",
 "invest-label-email": "电子邮件：",
 "invest-label-phone": "电话：",
-"invest-button-submit": "发送联系请求"}
+"invest-label-message": "信息",
+"invest-button-submit": "发送联系请求",
+"next-page": "到下一页",
+"prev-page": "到最后一页"
+}

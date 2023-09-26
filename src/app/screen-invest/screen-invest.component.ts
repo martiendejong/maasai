@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-screen-invest',
@@ -8,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['../content.scss', './screen-invest.component.scss']
 })
 export class ScreenInvestComponent extends BaseComponent {
-  constructor(translate: TranslateService) {
+  constructor(translate: TranslateService, private location: Location) {
     super(translate);
   }
   amount: number = 100;
@@ -42,4 +43,10 @@ export class ScreenInvestComponent extends BaseComponent {
       window.location.href = '/';
     });
   }
+
+  onClosestToCenter(isClosest: boolean) {
+    if (isClosest) {
+      this.location.go('/invest');
+    }
+  }  
 }

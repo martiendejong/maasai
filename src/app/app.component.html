@@ -2,32 +2,32 @@
 <app-title />
 <app-menu />
 
-<div class="page" id="home">
+<div class="page">
 
-  <div class="content layout1" id="investment-pitch">
+  <div class="content layout1" id="home">
     <img src="assets/background.jpg" class="background-image" />
     <app-screen-pitch-invest />
-    <app-button-nextpage to="goat-pitch" />
+    <app-button-nextpage to="goats" />
   </div>
 
-  <div class="content layout2" id="goat-pitch">
+  <div class="content layout2" id="goats">
     <img src="assets/mainbackground2.jpg" class="background-image" />
     <app-screen-pitch-goat />
-    <app-button-prevpage to="investment-pitch" />
-    <app-button-nextpage to="maxwell" />
+    <app-button-prevpage to="home" />
+    <app-button-nextpage to="natumi" />
   </div>
 
-  <div class="content layout1" id="maxwell">
+  <div class="content layout1" id="natumi">
     <img src="assets/mainbackground.jpg" class="background-image" />
     <app-screen-maxwellstory />
-    <app-button-prevpage to="goat-pitch" />
+    <app-button-prevpage to="goats" />
     <app-button-nextpage to="moranpower" />
   </div>
 
   <div class="content layout2" id="moranpower">
     <img src="assets/background.jpg" class="background-image" />
     <app-screen-moran-power />
-    <app-button-prevpage to="maxwell" />
+    <app-button-prevpage to="natumi" />
     <app-button-nextpage to="nkumum" />
   </div>
 
@@ -35,10 +35,10 @@
     <img src="assets/mainbackground2.jpg" class="background-image" />
     <app-screen-nkumum-solar-story />
     <app-button-prevpage to="moranpower" />
-    <app-button-nextpage to="about-us" />
+    <app-button-nextpage to="about" />
   </div>
 
-  <div class="content layout2" id="about-us">
+  <div class="content layout2" id="about">
     <img src="assets/mainbackground.jpg" class="background-image" />
     <app-screen-martienandsophy />
     <app-button-prevpage to="nkumum" />
@@ -48,7 +48,7 @@
   <div class="content layout1" id="effectivealtruism">
     <img src="assets/mainbackground.jpg" class="background-image" />
     <app-screen-effectivealtruism />
-    <app-button-prevpage to="about-us" />
+    <app-button-prevpage to="about" />
     <app-button-nextpage to="stakeholdercapitalism" />
   </div>
 

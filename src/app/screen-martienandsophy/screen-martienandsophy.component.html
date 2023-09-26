@@ -1,14 +1,16 @@
-<div class="text biggerfont" fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text biggerfont" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <p>{{ 'martienandsophy-p-1' | translate }}</p>
         <p>{{ 'martienandsophy-p-2' | translate }}</p>
         <p>{{ 'martienandsophy-p-3' | translate }}</p>
         <a class="contact" href="mailto:info@martiendejong.nl"><mat-icon aria-hidden="false" aria-label="Email icon" fontIcon="email"></mat-icon> info@martiendejong.nl</a>
         <a class="contact" href="mailto:sofynashipae@gmail.com"><mat-icon aria-hidden="false" aria-label="Email icon" fontIcon="email"></mat-icon> sofynashipae@gmail.com</a>
-        <a class="info" href="#effectivealtruism">{{ 'martienandsophy-a-3' | translate }}</a>
+        <a class="info" routerLink="effectivealtruism">{{ 'martienandsophy-a-3' | translate }}</a>
     </div>
 </div>
 <img class="image portrait" src="assets/us_wide.png" data-aos="zoom-in" data-aos-duration="1500" />
 <img class="image landscape" src="assets/us.png" data-aos="zoom-in" data-aos-duration="1500" />
 
-<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#about-us'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/about'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

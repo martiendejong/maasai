@@ -1,14 +1,16 @@
-<div class="text" fittext fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text" fittext fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <p>{{ 'moranpower-p-1' | translate }}</p>
         <p>{{ 'moranpower-p-2' | translate }}</p>
         <div class="buttons">
             <a class="link stack" href="https://moranpower.online" target="_blank">{{ 'moranpower-a-1' | translate }}</a>
-            <a class="info stack" href="#nkumum">{{ 'moranpower-a-2' | translate }}</a>
+            <a class="info stack" routerLink="nkumum">{{ 'moranpower-a-2' | translate }}</a>
         </div>
     </div>
 </div>
 <img class="image portrait" src="assets/moranpower.jpg" fittext data-aos="zoom-in" data-aos-duration="1500" />
 <img class="image landscape" src="assets/moranpower.jpg" fittext data-aos="zoom-in" data-aos-duration="1500" />
 
-<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#moranpower'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/moranpower'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

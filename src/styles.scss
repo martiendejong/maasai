@@ -162,14 +162,17 @@ share-buttons button {
     min-width: auto !important;
 }
 
-share-buttons fa-icon {
-    width: 5vw !important;
-    background-color: #aaa;
+share-buttons .sb-content .sb-icon {
+    width: 5vh !important;
+    height: 5vh !important;
     border-radius: 50%;
-    display: block;
-    height: 5vw !important;
+    background-color: #aaf;
 }
-share-buttons fa-icon:hover {
+
+share-buttons fa-icon {
+    display: block;
+}
+share-buttons .sb-content .sb-icon:hover {
     opacity: 0.8;
     transform: scale(1.2);
 }
@@ -197,8 +200,8 @@ share-buttons svg {
         left: 8vw;
     }
 
-    share-buttons fa-icon {
-        width: 5vh;
-        height: 5vh;
+    share-buttons .sb-content .sb-icon {
+        width: 5vh !important;
+        height: 5vh !important;
     }
 }

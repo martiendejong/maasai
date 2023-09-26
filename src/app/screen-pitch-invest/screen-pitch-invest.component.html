@@ -1,10 +1,12 @@
-<div class="text" fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <h4>{{ 'pitchinvest-h4-1' | translate }}</h4>
         <p>{{ 'pitchinvest-p-1' | translate }}</p>
         <p>{{ 'pitchinvest-p-2' | translate }}</p>
         <p>{{ 'pitchinvest-p-3' | translate }}</p>   
-        <a class="info" href="#goat-pitch">{{ 'pitchinvest-a-1' | translate }}</a>
+        <a class="info" routerLink="goats">{{ 'pitchinvest-a-1' | translate }}</a>
     </div>
 </div>
 <img class="image portrait" src="assets/sophy_herd_wide.png" data-aos="zoom-in" data-aos-duration="1500" />

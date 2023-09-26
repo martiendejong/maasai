@@ -1,25 +1,68 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { BaseComponent } from './base/base.component';
 import { TranslateService } from '@ngx-translate/core';
 import * as Aos from 'aos';
 import { LocalizationService } from './localization.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends BaseComponent implements OnInit {
-  constructor(translate: TranslateService, localization: LocalizationService) {
+export class AppComponent extends BaseComponent implements OnInit, AfterViewInit {
+  constructor(translate: TranslateService, localization: LocalizationService, public route: ActivatedRoute,
+    private router: Router, 
+    private titleService: Title, private metaService: Meta,
+    private location: Location) {
     super(translate);
+
+    var title = 'Goats';
+    var description = 'nice goats'; 
+
+    this.titleService.setTitle(title);
+    this.metaService.updateTag({ property: 'og:image', content: 'https://maasaiinvestments.online/assets/goat_wide.png' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://maasaiinvestments.online/goats' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://maasaiinvestments.online/assets/goat_wide.png' });          
+
+    this.metaService.updateTag({ property: 'og:title', content: title });
+    this.metaService.updateTag({ name: 'twitter:title', content: title });
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });    
   }
 
   title = 'MaasaiInvestmentsWebsite';
 
+  ngAfterViewInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        var url = this.location.path(true);
+        var index = url.indexOf('#');
+        if(index > -1) {
+          // After going to an anchor, remove the # in the url
+          var newUrl = url.substring(0, index) + url.substring(index + 1);
+          this.location.go(newUrl);
+        } else {
+          // When navigating to a page without #, instruct the browser to scroll to the corresponding anchor
+          url = url.replace('/', '');
+          if(url == '') url = 'home';
+          var scrollElem = document.getElementById(url);
+          if(scrollElem != null) {
+            scrollElem.scrollIntoView();
+          }
+        }
+      }
+    });
+  }
+
   ngOnInit(): void {
+
     var me = this;
-    
+
     Aos.init();
 
     window.addEventListener('resize', () => { me.handleAddressBarOnMobileDevice() });   

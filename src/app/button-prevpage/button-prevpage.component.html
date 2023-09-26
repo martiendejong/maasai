@@ -1,5 +1,5 @@
-<a class="button prev" href="#{{to}}" (click)="resetArrows()" *ngIf="navigationVisible">
-    <p>To the last page</p>
+<a class="button prev" routerLink="{{to}}" (click)="resetArrows()" *ngIf="navigationVisible">
+    <p>{{ 'prev-page' | translate }}</p>
     <div class="arrow up arrow1" [@fadeInAnimation]="arrowsVisible"></div>
     <div class="arrow up arrow2" [@fadeInAnimation]="arrowsVisible"></div>
     <div class="arrow up arrow3" [@fadeInAnimation]="arrowsVisible"></div>

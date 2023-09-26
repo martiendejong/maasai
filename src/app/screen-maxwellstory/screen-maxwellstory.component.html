@@ -1,12 +1,14 @@
-<div class="text biggerfont" fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text biggerfont" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <p>{{ 'maxwellstory-p-1' | translate }}</p>
         <p>{{ 'maxwellstory-p-2' | translate }}</p>
         <p>{{ 'maxwellstory-p-3' | translate }}</p>
-        <a class="info" href="#moranpower">{{ 'maxwellstory-a-1' | translate }}</a>
+        <a class="info" routerLink="moranpower">{{ 'maxwellstory-a-1' | translate }}</a>
     </div>
 </div>
 <img class="image portrait" src="assets/natumi.jpg" data-aos="zoom-in" data-aos-duration="1500" />
 <img class="image landscape" src="assets/natumi.jpg" data-aos="zoom-in" data-aos-duration="1500" />
 
-<share-buttons [theme]="'circles-light'" [url]="'/'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/natumi'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

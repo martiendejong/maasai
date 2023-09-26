@@ -1,4 +1,6 @@
-<div class="text biggerfont" fittext data-aos="zoom-in" data-aos-duration="1500">
+<div class="text biggerfont" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
     <div class="text-child">
         <h4>{{ 'invest-h4-1' | translate }}</h4>
         <p>{{ 'invest-p-1' | translate }}</p>
@@ -34,17 +36,15 @@
 
 <div class="text" fittext data-aos="zoom-in" data-aos-duration="1500">
     <div class="text-child">
-        <h4>{{ 'invest-h4-3' | translate }}</h4>
-        <p>{{ 'invest-p-6' | translate }}</p><br />
         <form id="contactForm">
             <label style="width: 80%">{{ 'invest-label-name' | translate }}</label><br /><input name="name" type="text" /><br />
-            <label>{{ 'invest-label-phone' | translate }}</label><br /><input name="email" type="text" /><br />
-            <label>{{ 'invest-label-email' | translate }}</label><br /><input name="phone" type="text" /><br />
+            <label>{{ 'invest-label-phone' | translate }}</label><br /><input name="phone" type="text" /><br />
+            <label>{{ 'invest-label-email' | translate }}</label><br /><input name="email" type="text" /><br />
+            <label>{{ 'invest-label-message' | translate }}</label><br /><textarea name="message" rows="4"></textarea><br />
             <input type="hidden" name="security" value="Ver3tig!" />
-            <span style="display: block; height: 2%; color: transparent">&nbsp;</span>
             <button type="button" class="contact" (click)="submitForm()">{{ 'invest-button-submit' | translate }}</button>
         </form>
     </div>
 </div>
 
-<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/#invest'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/invest'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>
