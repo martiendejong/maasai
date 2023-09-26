@@ -18,18 +18,6 @@ export class ScreenPitchInvestComponent extends BaseComponent {
   onClosestToCenter(isClosest: boolean) {
     if (isClosest) {
       this.location.go('/');
-      this.setMeta();
     }
-  }
-
-  setMeta() {
-    this.titleService.setTitle('Your Page Title');
-    this.metaService.updateTag({ name: 'description', content: 'Your page description' });
-    this.metaService.updateTag({ property: 'og:title', content: 'Your Open Graph title' });
-    this.metaService.updateTag({ property: 'og:description', content: 'Your Open Graph description' });
-    this.metaService.updateTag({ property: 'og:image', content: 'assets/goat_wide.png' });
-    this.metaService.updateTag({ name: 'twitter:title', content: 'Your Twitter Card title' });
-    this.metaService.updateTag({ name: 'twitter:description', content: 'Your Twitter Card description' });
-    this.metaService.updateTag({ name: 'twitter:image', content: 'URL to your image' });  
   }
 }

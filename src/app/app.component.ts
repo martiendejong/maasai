@@ -18,21 +18,7 @@ export class AppComponent extends BaseComponent implements OnInit, AfterViewInit
     private router: Router, 
     private titleService: Title, private metaService: Meta,
     private location: Location) {
-    super(translate);
-
-    var title = 'Goats';
-    var description = 'nice goats'; 
-
-    this.titleService.setTitle(title);
-    this.metaService.updateTag({ property: 'og:image', content: 'https://maasaiinvestments.online/assets/goat_wide.png' });
-    this.metaService.updateTag({ property: 'og:url', content: 'https://maasaiinvestments.online/goats' });
-    this.metaService.updateTag({ name: 'twitter:image', content: 'https://maasaiinvestments.online/assets/goat_wide.png' });          
-
-    this.metaService.updateTag({ property: 'og:title', content: title });
-    this.metaService.updateTag({ name: 'twitter:title', content: title });
-    this.metaService.updateTag({ name: 'description', content: description });
-    this.metaService.updateTag({ property: 'og:description', content: description });
-    this.metaService.updateTag({ name: 'twitter:description', content: description });    
+    super(translate); 
   }
 
   title = 'MaasaiInvestmentsWebsite';

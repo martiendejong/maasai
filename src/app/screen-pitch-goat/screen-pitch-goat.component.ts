@@ -15,24 +15,6 @@ export class ScreenPitchGoatComponent extends BaseComponent {
   constructor(translate: TranslateService, private location: Location, 
     private titleService: Title, private metaService: Meta) {
     super(translate);
-    if(location.isCurrentPathEqualTo('/goats')) {
-      //this.setMeta();
-
-      var title = 'Goats';
-      var description = 'nice goats'; 
-
-      this.titleService.setTitle(title);
-      this.metaService.updateTag({ property: 'og:image', content: 'assets/goat_wide.png' });
-      this.metaService.updateTag({ property: 'og:url', content: 'maasaiinvestments.online/goats' });
-      this.metaService.updateTag({ name: 'twitter:image', content: 'maasaiinvestments.online/goats' });          
-  
-      this.metaService.updateTag({ property: 'og:title', content: title });
-      this.metaService.updateTag({ name: 'twitter:title', content: title });
-      this.metaService.updateTag({ name: 'description', content: description });
-      this.metaService.updateTag({ property: 'og:description', content: description });
-      this.metaService.updateTag({ name: 'twitter:description', content: description });
-
-    }
   }
 
   onClosestToCenter(isClosest: boolean) {
