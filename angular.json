@@ -26,11 +26,16 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/.htaccess",
+
               "src/assets",
+
+              "src/favicon.ico",
               "src/site.webmanifest",
               "src/favicon-16x16.png",
               "src/favicon-32x32.png",
+
+              "src/documents.html",
               "src/about.html",
               "src/effectivealtruism.html",
               "src/goats.html",
@@ -116,7 +121,9 @@
               "src/moranpower.html",
               "src/natumi.html",
               "src/nkumum.html",
-              "src/stakeholdercapitalism.html"              
+              "src/stakeholdercapitalism.html",
+              "src/documents.html",
+              "src/.htaccess"           
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",

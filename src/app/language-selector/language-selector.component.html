@@ -6,7 +6,7 @@
     </div>
   
     <!-- Larger div with other flag options -->
-    <div class="flag-options" [hidden]="!showFlagOptions">
+    <div class="flag-options" *ngIf="showFlagOptions">
       <div class="flag-option" *ngFor="let language of localization.pickLanguages()" (click)="selectLanguage(language.code)">
         <img src="assets/flags/{{language.code}}.png" alt="{{language.name}}">
       </div>

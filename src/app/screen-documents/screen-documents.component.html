@@ -1,0 +1,33 @@
+<div class="text" fittext 
+    data-aos="zoom-in" data-aos-duration="1500"
+    appClosestToCenter (closestToCenter)="onClosestToCenter($event)">
+    <div class="text-child">
+        <h4>{{ 'documents-title' | translate }}</h4>
+        <a style="display: block;" class="link" target="_blank" href="{{ 'documents-a-quickguide' | translate }}">
+            <h4>{{ 'documents-title-quickguide' | translate }}</h4>
+            <p>{{ 'documents-text-quickguide' | translate }}</p>                
+        </a>
+        <a style="display: block;" class="link" target="_blank" href="{{ 'documents-a-businessplan' | translate }}">
+            <h4>{{ 'documents-title-businessplan' | translate }}</h4>
+            <p>{{ 'documents-text-businessplan' | translate }}</p>                
+        </a>
+        <h4>{{ 'documents-title-socialmedia' | translate }}</h4>
+        <a style="display: inline-block;" class="link stack" target="_blank" href="https://www.facebook.com/groups/maasaiinvestments">
+            <svg width="64" height="64" role="img" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-fw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+            </svg>
+        </a>
+        <a style="display: inline-block;" class="action stack" target="_blank" href="https://www.youtube.com/channel/UCGzWl_9AaKmjSeOKCKJjI1w">
+            <svg role="img" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-fw" width="64" height="64" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <!-- Rounded Rectangle -->
+                <rect x="0" y="0" width="64" height="64" rx="12" ry="12" fill="#FF0000" />              
+                <!-- Play Button Triangle -->
+                <path d="M24 16v32l24-16z" fill="#FFF" />
+            </svg>
+        </a>
+    </div>
+</div>
+<img class="image portrait" src="assets/books.jpg" data-aos="zoom-in" data-aos-duration="1500" />
+<img class="image landscape" src="assets/books.jpg" data-aos="zoom-in" data-aos-duration="1500" />
+
+<share-buttons [theme]="'circles-light'" [url]="'https://maasaiinvestments.online/documents'" [include]="['whatsapp','facebook','twitter','linkedin','email','copy']" [show]="6" [show]="6" data-aos="zoom-in" data-aos-offset="-50"></share-buttons>

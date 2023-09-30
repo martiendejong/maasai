@@ -5,4 +5,19 @@
 "invest-label-message": "Сообщение:",
 "invest-button-submit": "Отправить запрос на контакт",
 "next-page": "На следующую страницу",
-  "prev-page": "На последнюю страницу"}
+  "prev-page": "На последнюю страницу",
+  "documents-title": "Документы",
+  "documents-title-quickguide": "Начало работы",
+  "documents-text-quickguide": "Пошаговые инструкции.",
+  "documents-title-businessplan": "Бизнес-план",
+  "documents-text-businessplan": "Бизнес-план для Maasai Investments.",
+  "menu-documents": "Документы",
+    "documents-a-quickguide": "/assets/docs/quickguide-en.pdf",
+  "documents-a-businessplan": "/assets/docs/businessplan-en.pdf",
+  "invest-mail-sent-1": "Спасибо за ваше сообщение.",
+  "invest-mail-sent-2": "Ваше сообщение находится в нашем почтовом ящике, и мы ответим вам как можно скорее.",
+  "invest-mail-error-1": "При отправке сообщения произошла ошибка.",
+  "invest-mail-error-2": "Приносим извинения.",
+  "invest-mail-error-3": "Вы всегда можете отправить электронное письмо напрямую на адрес info@maasaiinvestments.online или info@martiendejong.nl",
+  "invest-mail-done": "Готово"
+}

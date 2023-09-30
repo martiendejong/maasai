@@ -87,5 +87,20 @@
   "invest-label-message":"Bericht:",
   "invest-button-submit":"Stuur Contact Verzoek",
   "next-page": "Volgende Pagina",
-  "prev-page": "Vorige Pagina"
+  "prev-page": "Vorige Pagina",
+  "documents-title": "Documenten",
+  "documents-title-quickguide": "Hoe werkt het?",
+  "documents-text-quickguide": "Stap voor stap uitleg.",
+  "documents-a-quickguide": "/assets/docs/quickguide-nl.pdf",
+  "documents-title-businessplan": "Business plan",
+  "documents-text-businessplan": "Het bedrijfsplan van Maasai Investments.",
+  "documents-a-businessplan": "/assets/docs/businessplan-en.pdf",
+  "documents-title-socialmedia": "Social Media",
+  "menu-documents": "Documenten",
+  "invest-mail-sent-1": "Bedankt voor uw bericht.",
+  "invest-mail-sent-2": "Uw bericht is in onze inbox ontvangen en we zullen zo snel mogelijk antwoorden.",
+  "invest-mail-error-1": "Er is iets misgegaan bij het verzenden van een bericht.",
+  "invest-mail-error-2": "Onze excuses.",
+  "invest-mail-error-3": "U kunt altijd een e-mail sturen naar info@maasaiinvestments.online of info@martiendejong.nl",
+  "invest-mail-done": "Klaar"
 }

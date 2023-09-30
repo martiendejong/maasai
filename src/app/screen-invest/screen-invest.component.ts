@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
+import { FittextDirective } from '../fittext.directive';
 
 @Component({
   selector: 'app-screen-invest',
@@ -9,9 +10,32 @@ import { Location } from '@angular/common';
   styleUrls: ['../content.scss', './screen-invest.component.scss']
 })
 export class ScreenInvestComponent extends BaseComponent {
+  @ViewChildren(FittextDirective) fittextDirectives: QueryList<FittextDirective> | undefined;
+
   constructor(translate: TranslateService, private location: Location) {
     super(translate);
   }
+
+  formResult = {
+    success: false,
+    errorMessage: '',
+  };
+
+  done() {
+    this.formResult.success = false;
+    this.formResult.errorMessage = '';
+    setTimeout(() => this.fittextDirectives?.last.adjustFontSize(), 50);
+  }
+  error(error: string) {
+    this.formResult.errorMessage = error;
+    setTimeout(() => this.fittextDirectives?.last.adjustFontSize(), 50);
+  }
+  success() {
+    this.formResult.success = true;
+    setTimeout(() => this.fittextDirectives?.last.adjustFontSize(), 50);
+  }
+
+
   amount: number = 100;
   submitForm(){
     var form = document.getElementById('contactForm') as HTMLFormElement;
@@ -20,7 +44,6 @@ export class ScreenInvestComponent extends BaseComponent {
     const params = new URLSearchParams(formData as any);
 
     const formUrl = 'https://maasaiinvestments.online/contact.php';
-
     // Send a POST request to the Google Form submission URL
     fetch(formUrl, {
         method: 'POST',
@@ -31,16 +54,14 @@ export class ScreenInvestComponent extends BaseComponent {
     })
     .then(response => {
         if (response.status === 200) {
-            alert("Thank you! We will contact you shortly.");
+          this.success();
         } else {
-            alert("Form submission failed. Please try to send an email to info@maasaiinvestments.online instead.");
+          response.text().then(t => this.error(t));
         }
-        window.location.href = '/';
     })
     .catch(error => {
+      this.error(error);
       console.error("Error submitting form:", error);
-      alert("Form submission failed. Please try to send an email to info@maasaiinvestments.online instead.");
-      window.location.href = '/';
     });
   }
 

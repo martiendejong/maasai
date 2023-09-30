@@ -8,6 +8,7 @@ import { FittextService } from './fittext.service';
 })
 export class LocalizationService {
   constructor(public translate: TranslateService, private cookieService: CookieService, private fittextService: FittextService) {
+    this.translate.setDefaultLang('en'); // Set a default language
     this.detectLanguage();
   }
 
@@ -30,7 +31,11 @@ export class LocalizationService {
     { code: 'nl', name: 'Nederlands' },
     { code: 'ru', name: 'Русский' },
     { code: 'zh', name: '中国人' },
-    { code: 'pl', name: 'Polski' }
+    { code: 'pl', name: 'Polski' },
+    { code: 'fr', name: 'Français' },
+    { code: 'ar', name: 'Polski' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'sw', name: 'Kiswahili' },
   ];
 
   pickLanguages() {
@@ -44,7 +49,6 @@ export class LocalizationService {
     if(language == undefined) return false;
     this.language = language;
     this.cookieService.set('language', this.language.code);    
-    this.translate.setDefaultLang(this.language.code); // Set a default language
     this.translate.use(this.language.code); // Use the default language  
     this.fittextService.triggerFontSizeAdjustment();
     return true;

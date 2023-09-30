@@ -36,7 +36,7 @@
 
 <div class="text" fittext data-aos="zoom-in" data-aos-duration="1500">
     <div class="text-child">
-        <form id="contactForm">
+        <form id="contactForm" *ngIf="formResult.success == false && formResult.errorMessage == ''">
             <label style="width: 80%">{{ 'invest-label-name' | translate }}</label><br /><input name="name" type="text" /><br />
             <label>{{ 'invest-label-phone' | translate }}</label><br /><input name="phone" type="text" /><br />
             <label>{{ 'invest-label-email' | translate }}</label><br /><input name="email" type="text" /><br />
@@ -44,6 +44,17 @@
             <input type="hidden" name="security" value="Ver3tig!" />
             <button type="button" class="contact" (click)="submitForm()">{{ 'invest-button-submit' | translate }}</button>
         </form>
+        <div *ngIf="formResult.success == true">
+            <p>{{ 'invest-mail-sent-1' | translate }}</p>
+            <p>{{ 'invest-mail-sent-2' | translate }}</p>
+            <button (click)="done()">{{ 'invest-mail-done' | translate }}</button>
+        </div>
+        <div *ngIf="formResult.errorMessage != ''">
+            <p>{{ 'invest-mail-error-1' | translate }}</p>
+            <p>{{ 'invest-mail-error-2' | translate }}</p>
+            <p>{{ 'invest-mail-error-3' | translate }}</p>
+            <button (click)="done()">{{ 'invest-mail-done' | translate }}</button>
+        </div>
     </div>
 </div>
 

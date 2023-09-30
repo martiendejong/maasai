@@ -5,5 +5,19 @@
 "invest-label-message": "信息:",
 "invest-button-submit": "发送联系请求",
 "next-page": "到下一页",
-"prev-page": "到最后一页"
+"prev-page": "到最后一页",
+"documents-title": "文件",
+"documents-title-quickguide": "入门指南",
+"documents-text-quickguide": "逐步说明。",
+"documents-title-businessplan": "业务计划",
+"documents-text-businessplan": "Maasai Investments的业务计划。",
+"menu-documents": "文档",
+"documents-a-quickguide": "/assets/docs/quickguide-en.pdf",
+"documents-a-businessplan": "/assets/docs/businessplan-en.pdf",
+"invest-mail-sent-1": "感谢您联系我们。",
+"invest-mail-sent-2": "您的消息已经收到，我们会尽快回复您。",
+"invest-mail-error-1": "发送消息时出现问题。",
+"invest-mail-error-2": "我们深感抱歉。",
+"invest-mail-error-3": "您随时可以直接发送电子邮件至 info@maasaiinvestments.online 或 info@martiendejong.nl",
+"invest-mail-done": "完成"
 }

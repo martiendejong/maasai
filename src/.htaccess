@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# Serve the corresponding HTML file if it exists
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
 # Redirect all requests to index.html, except for existing files and directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

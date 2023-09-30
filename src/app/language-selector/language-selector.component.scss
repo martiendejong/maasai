@@ -12,6 +12,17 @@
     top: unset;
   }
   
+
+  .language-selector.mobile #current-language {
+    position: absolute;
+    bottom: 0;
+  }
+  .language-selector.mobile .flag-options {
+    margin-bottom: 7.1vw;
+    justify-content: flex-end;
+    height: 70vh;
+  }
+
   @media (min-height: 130vw) {
     .language-selector {
       right: 1.4vh;
@@ -23,7 +34,21 @@
       width: 7vh !important;
       height: 7vh !important;
       filter: drop-shadow(0vh 1vh 0.5vh #000);
-    }  
+    }
+
+
+    #current-language {
+      position: absolute;
+      bottom: 0;
+    }
+    .language-selector.mobile #current-language {
+      bottom: 0;
+    }
+
+    .language-selector.mobile .flag-options {
+      justify-content: flex-end;
+      margin-bottom: 8.6vh;
+    }
   }
 
 
@@ -66,3 +91,22 @@
     height: 7vw;
     filter: drop-shadow(0vh 1vh 0.5vh #000);
   }
+
+.flag-option.ng-star-inserted {
+  display: inline-block;
+}
+
+.flag-options {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 80vh;
+}
+
+.language-selector {
+  direction: rtl;
+}
+
+.flag-options.hidden {
+  display: none !important;
+}
