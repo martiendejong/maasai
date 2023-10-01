@@ -102,5 +102,7 @@
     "invest-mail-error-2": "Entschuldigung.",
     "invest-mail-error-3": "Sie können jederzeit eine E-Mail direkt an info@maasaiinvestments.online oder info@martiendejong.nl senden.",
     "invest-mail-done": "Fertig",
-    "initial_message_key": "Hallo! Haben Sie Fragen? Wir helfen Ihnen gerne bei Investitionen in Ziegen, Schafe oder Solarmodule. Schicken Sie uns eine Nachricht, und wir stehen Ihnen zur Verfügung."
-}
+    "initial_message_key": "Hallo! Haben Sie Fragen? Wir helfen Ihnen gerne bei Investitionen in Ziegen, Schafe oder Solarmodule. Schicken Sie uns eine Nachricht, und wir stehen Ihnen zur Verfügung.",
+    "chat": "Chat",
+    "chat-assistant": "Chat-Assistent"
+  }

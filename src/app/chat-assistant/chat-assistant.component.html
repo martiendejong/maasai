@@ -1,19 +1,26 @@
 <div *ngIf="!chatOpen" [class.open]="chatOpen" class="chat-button" (click)="toggleChat()">
     <img class="chat-icon" src="/assets/chat-icon.png" />
-    <span class="chat-label">Chat</span>
+    <span class="chat-label">{{ 'chat' | translate }}</span>
 </div>
 
 <!-- Rest of the chat assistant component -->
-<div [class.open]="chatOpen" class="chat-container">
+<div [class.open]="chatOpen" class="chat-container" (click)="handleChatContainerClick($event)">
   <div class="chat-assistant">
     <!-- Header with a title or any other content you want to display -->
     <div class="chat-header">
-      <h2>Chat Assistant</h2>
+      <h2>{{ 'chat-assistant' | translate }}</h2>
       <span class="close-button" (click)="toggleChat()">---</span>
     </div>
 
     <!-- Message display area -->
     <div class="message-container">
+
+      <div class="assistant">
+        <div class="chatmessage">{{ 'initial_message_key' | translate }}</div>
+        <div style="clear: both;"></div>
+      </div>
+
+
       <!-- Display messages with appropriate CSS class based on sender -->
       <div *ngFor="let message of chatMessages" [ngClass]="message.sender">
         <div class="chatmessage">{{ message.text }}</div>

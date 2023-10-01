@@ -27,7 +27,7 @@ htmlFiles.forEach((htmlFile) => {
     // Extract the elements from index.html and append them to the current file
     const headElements = htmlFileContent.match(/<head>[\s\S]*?<\/head>/);
     if (headElements) {
-      const updatedContent = indexContent.slice(0, insertPosition) + headElements[0].substring(6, headElements[0].length - 10) + indexContent.slice(endPosition);
+      const updatedContent = indexContent.slice(0, insertPosition) + headElements[0].substring(6, headElements[0].length - 9) + indexContent.slice(endPosition);
       fs.writeFileSync(htmlFilePath, updatedContent, 'utf8');
       console.log(`Updated ${htmlFile}`);
     }

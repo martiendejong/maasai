@@ -16,9 +16,18 @@ export class ChatAssistantComponent {
 
   ngOnInit() {
     // Fetch and display the initial message from the Chat Assistant
-    this.chatAssistantService.getInitialMessage().subscribe((initialMessage: string) => {
-      this.addMessage(initialMessage, 'assistant');
-    });
+    // this.chatAssistantService.getInitialMessage().subscribe((initialMessage: string) => {
+    //   this.addMessage(initialMessage, 'assistant');
+    // });
+  }
+
+  handleChatContainerClick(event: MouseEvent) {
+    // Check if the clicked target is the chat-container itself
+    if (event.target === event.currentTarget) {
+      // Add your logic to handle the click event here
+      // For example, you can call toggleChat() to close the chat
+      this.toggleChat();
+    }
   }
 
   toggleChat() {

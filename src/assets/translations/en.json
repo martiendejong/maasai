@@ -17,5 +17,7 @@
   "invest-mail-error-2": "Our apologies.",
   "invest-mail-error-3": "You can always send an email directly to info@maasaiinvestments.online or info@martiendejong.nl",
   "invest-mail-done": "Done",
-  "initial_message_key": "Hello! Do you have any questions? We're here to assist you with investing in goats, sheep, or solar panels. Send us a message, and we're ready to help."
+  "initial_message_key": "Hello! Do you have any questions? We're here to assist you with investing in goats, sheep, or solar panels. Send us a message, and we're ready to help.",
+  "chat": "Chat",
+  "chat-assistant": "Chat Assistant"
 }
