@@ -101,5 +101,6 @@
     "invest-mail-error-1": "Une erreur s'est produite lors de l'envoi du message.",
     "invest-mail-error-2": "Nos excuses.",
     "invest-mail-error-3": "Vous pouvez toujours envoyer un e-mail directement à info@maasaiinvestments.online ou info@martiendejong.nl",
-    "invest-mail-done": "Terminé"          
+    "invest-mail-done": "Terminé",
+    "initial_message_key": "Bonjour ! Avez-vous des questions ? Nous sommes là pour vous aider à investir dans les chèvres, les moutons ou les panneaux solaires. Envoyez-nous un message, et nous sommes prêts à vous assister."
 }

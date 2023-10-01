@@ -19,5 +19,6 @@
 "invest-mail-error-1": "发送消息时出现问题。",
 "invest-mail-error-2": "我们深感抱歉。",
 "invest-mail-error-3": "您随时可以直接发送电子邮件至 info@maasaiinvestments.online 或 info@martiendejong.nl",
-"invest-mail-done": "完成"
+"invest-mail-done": "完成",
+"initial_message_key": "你好！有问题吗？我们可以帮助您投资购买山羊、绵羊或太阳能板。给我们发送消息，我们随时为您服务。"
 }

@@ -1,0 +1,30 @@
+<div *ngIf="!chatOpen" [class.open]="chatOpen" class="chat-button" (click)="toggleChat()">
+    <img class="chat-icon" src="/assets/chat-icon.png" />
+    <span class="chat-label">Chat</span>
+</div>
+
+<!-- Rest of the chat assistant component -->
+<div [class.open]="chatOpen" class="chat-container">
+  <div class="chat-assistant">
+    <!-- Header with a title or any other content you want to display -->
+    <div class="chat-header">
+      <h2>Chat Assistant</h2>
+      <span class="close-button" (click)="toggleChat()">---</span>
+    </div>
+
+    <!-- Message display area -->
+    <div class="message-container">
+      <!-- Display messages with appropriate CSS class based on sender -->
+      <div *ngFor="let message of chatMessages" [ngClass]="message.sender">
+        <div class="chatmessage">{{ message.text }}</div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+
+    <!-- User input and send button -->
+    <div class="user-input">
+      <input [(ngModel)]="userResponse" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
+      <button (click)="sendMessage()" [disabled]="inputDisabled" [class.grey]="inputDisabled">Send</button>
+    </div>
+  </div>
+</div>

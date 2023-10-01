@@ -56,7 +56,7 @@
     "pitchinvest-h4-1": "Stellen Sie sich vor",
     "pitchinvest-p-1": "Durch Ihre Investition wächst Ihr Vermögen, und es kommt auch in Entwicklungsbereichen zu Fortschritten.",
     "pitchinvest-p-2": "Dies führt zu einem Dominoeffekt: Familien werden versorgt, Kinder gehen zur Schule, und das Leben verbessert sich.",
-    "pitchinvest-p-3": "Machen Sie mit bei der Bewegung der Maasai-Investitionen und erleben Sie die Befriedigung von investitionsgetriebenen Auswirkungen.",    
+    "pitchinvest-p-3": "Machen Sie mit bei der Bewegung der Maasai-Investitionen und erleben Sie die Befriedigung von investitionsgetriebenen Auswirkungen.",
     "pitchinvest-a-1": "Mehr erfahren",
     "realestatepitch-h4-1": "Stellen Sie sich dies vor:",
     "realestatepitch-p-1": "Häuser bauen in Kenia",
@@ -93,7 +93,7 @@
     "documents-text-quickguide": "Schritt-für-Schritt-Anleitungen.",
     "documents-title-businessplan": "Geschäftsplan",
     "documents-text-businessplan": "Der Geschäftsplan für Maasai Investments.",
-    "menu-documents": "Dokumente",    
+    "menu-documents": "Dokumente",
     "documents-a-quickguide": "/assets/docs/quickguide-en.pdf",
     "documents-a-businessplan": "/assets/docs/businessplan-en.pdf",
     "invest-mail-sent-1": "Vielen Dank für Ihre Nachricht.",
@@ -101,5 +101,6 @@
     "invest-mail-error-1": "Beim Senden der Nachricht ist ein Fehler aufgetreten.",
     "invest-mail-error-2": "Entschuldigung.",
     "invest-mail-error-3": "Sie können jederzeit eine E-Mail direkt an info@maasaiinvestments.online oder info@martiendejong.nl senden.",
-    "invest-mail-done": "Fertig"    
-}  
+    "invest-mail-done": "Fertig",
+    "initial_message_key": "Hallo! Haben Sie Fragen? Wir helfen Ihnen gerne bei Investitionen in Ziegen, Schafe oder Solarmodule. Schicken Sie uns eine Nachricht, und wir stehen Ihnen zur Verfügung."
+}

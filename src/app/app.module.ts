@@ -42,6 +42,8 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { ClosestToCenterDirective } from './closest-to-center.directive';
 import { ScreenDocumentsComponent } from './screen-documents/screen-documents.component';
+import { ChatAssistantComponent } from './chat-assistant/chat-assistant.component';
+import { FormsModule } from '@angular/forms';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -79,7 +81,8 @@ export function createTranslateLoader(http: HttpClient) {
     ScreenBedandbreakfastPitchComponent,
     LanguageSelectorComponent,
     ClosestToCenterDirective,
-    ScreenDocumentsComponent
+    ScreenDocumentsComponent,
+    ChatAssistantComponent
   ],
   imports: [
     HttpClientModule,
@@ -95,7 +98,8 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     MatIconModule,
     ShareButtonsModule,
-    ShareIconsModule
+    ShareIconsModule,
+    FormsModule
   ],
   providers: [Location],
   bootstrap: [AppComponent]
