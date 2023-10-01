@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatAssistantService } from '../chat-assistant.service'; // Import your ChatAssistantService
 
 @Component({
@@ -7,6 +7,8 @@ import { ChatAssistantService } from '../chat-assistant.service'; // Import your
   styleUrls: ['./chat-assistant.component.scss'],
 })
 export class ChatAssistantComponent {
+  @ViewChild('chatContainer') chatContainer: ElementRef | undefined;
+
   userResponse: string = ''; // User's response
   chatMessages: { text: string; sender: string }[] = []; // Array to store chat messages
   chatOpen = false;
@@ -61,5 +63,17 @@ export class ChatAssistantComponent {
   // Helper function to add a message to the chat
   private addMessage(text: string, sender: string) {
     this.chatMessages.push({ text, sender });
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    try {
+      if(this.chatContainer !== undefined) {
+        var nativeElement = this.chatContainer.nativeElement;
+        setTimeout(() => nativeElement.scrollTop = nativeElement.scrollHeight, 200);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
