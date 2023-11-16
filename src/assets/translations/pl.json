@@ -22,5 +22,7 @@
 "invest-mail-done": "Gotowe",
 "initial_message_key": "Witaj! Masz jakieś pytania? Chętnie pomożemy Ci z inwestycjami w kozy, owce lub panele słoneczne. Wyślij nam wiadomość, jesteśmy gotowi pomóc.",
 "chat": "Czat",
-"chat-assistant": "Asystent czatu"
+"chat-assistant": "Asystent czatu",
+"chat-assistant-send": "Wyślij",
+"Type your message...": "Wpisz swoją wiadomość..."
 }

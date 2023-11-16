@@ -19,5 +19,7 @@
   "invest-mail-done": "Done",
   "initial_message_key": "Hello! Do you have any questions? We're here to assist you with investing in goats, sheep, or solar panels. Send us a message, and we're ready to help.",
   "chat": "Chat",
-  "chat-assistant": "Chat Assistant"
+  "chat-assistant": "Chat Assistant",
+  "chat-assistant-send": "Send",
+  "Type your message...": "Type your message..."
 }

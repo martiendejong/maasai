@@ -30,8 +30,8 @@
 
     <!-- User input and send button -->
     <div class="user-input">
-      <input [(ngModel)]="userResponse" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
-      <button (click)="sendMessage()" [disabled]="inputDisabled" [class.grey]="inputDisabled">Send</button>
+      <input [(ngModel)]="userResponse" placeholder="{{ 'Type your message...' | translate }}" (keyup.enter)="sendMessage()" />
+      <button (click)="sendMessage()" [disabled]="inputDisabled" [class.grey]="inputDisabled">{{ 'chat-assistant-send' | translate }}</button>
     </div>
   </div>
 </div>

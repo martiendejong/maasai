@@ -104,5 +104,7 @@
     "invest-mail-done": "Imekamilika",
     "initial_message_key": "Hujambo! Je, una maswali yoyote? Tupo hapa kusaidia na uwekezaji katika mbuzi, kondoo, au paneli za nishati ya jua. Tuma ujumbe, na tuko tayari kusaidia.",
     "chat": "Gumzo",
-    "chat-assistant": "Msaidizi wa Mazungumzo"
+    "chat-assistant": "Msaidizi wa Mazungumzo",
+    "chat-assistant-send": "Tuma",
+    "Type your message...": "Andika ujumbe wako..."
   }

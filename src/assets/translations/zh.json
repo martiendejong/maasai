@@ -22,5 +22,7 @@
 "invest-mail-done": "完成",
 "initial_message_key": "你好！有问题吗？我们可以帮助您投资购买山羊、绵羊或太阳能板。给我们发送消息，我们随时为您服务。",
 "chat": "聊天",
-"chat-assistant": "聊天助手"
+"chat-assistant": "聊天助手",
+"chat-assistant-send": "发送",
+"Type your message...": "输入您的消息..."
 }

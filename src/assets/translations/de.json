@@ -104,5 +104,7 @@
     "invest-mail-done": "Fertig",
     "initial_message_key": "Hallo! Haben Sie Fragen? Wir helfen Ihnen gerne bei Investitionen in Ziegen, Schafe oder Solarmodule. Schicken Sie uns eine Nachricht, und wir stehen Ihnen zur Verfügung.",
     "chat": "Chat",
-    "chat-assistant": "Chat-Assistent"
+    "chat-assistant": "Chat-Assistent",
+    "chat-assistant-send": "Senden",
+    "Type your message...": "Geben Sie Ihre Nachricht ein..."
   }

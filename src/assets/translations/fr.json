@@ -104,5 +104,7 @@
     "invest-mail-done": "Terminé",
     "initial_message_key": "Bonjour ! Avez-vous des questions ? Nous sommes là pour vous aider à investir dans les chèvres, les moutons ou les panneaux solaires. Envoyez-nous un message, et nous sommes prêts à vous assister.",
     "chat": "Chat",
-    "chat-assistant": "Assistant de chat"
+    "chat-assistant": "Assistant de chat",
+    "chat-assistant-send": "Envoyer",
+    "Type your message...": "Tapez votre message..."
 }
