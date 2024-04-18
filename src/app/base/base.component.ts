@@ -9,7 +9,7 @@ import { FittextDirective } from '../fittext.directive';
 })
 export class BaseComponent {
   @ViewChildren(FittextDirective) fitTextDirectives: QueryList<FittextDirective> | undefined;
-  constructor(public translate: TranslateService) {  
+  constructor(public translate: TranslateService) {
     var t = translate.currentLoader.getTranslation(translate.currentLang);
     t.subscribe(() => {
       this.fitTextDirectives?.forEach(directive => {
@@ -20,6 +20,6 @@ export class BaseComponent {
 
   // You can change the active language
   changeLanguage(language: string) {
-    this.translate.use(language);    
+    this.translate.use(language);
   }
 }

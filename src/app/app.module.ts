@@ -44,6 +44,7 @@ import { ClosestToCenterDirective } from './closest-to-center.directive';
 import { ScreenDocumentsComponent } from './screen-documents/screen-documents.component';
 import { ChatAssistantComponent } from './chat-assistant/chat-assistant.component';
 import { FormsModule } from '@angular/forms';
+import { NashipaeCulturalOasisComponent } from './nashipae-cultural-oasis/nashipae-cultural-oasis.component';
 
 // Create a loader for translations
 export function createTranslateLoader(http: HttpClient) {
@@ -82,7 +83,8 @@ export function createTranslateLoader(http: HttpClient) {
     LanguageSelectorComponent,
     ClosestToCenterDirective,
     ScreenDocumentsComponent,
-    ChatAssistantComponent
+    ChatAssistantComponent,
+    NashipaeCulturalOasisComponent
   ],
   imports: [
     HttpClientModule,
