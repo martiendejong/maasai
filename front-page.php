@@ -1093,18 +1093,396 @@
                 margin: 0 auto;
             }
         }
-    </style>
+
+        /* ============================================
+           GALLERY SECTION
+           ============================================ */
+        .maasai-gallery {
+          padding: 6rem 0;
+          background: transparent;
+          width: 100%;
+        }
+        
+        .gallery-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+        
+        /* Header */
+        .gallery-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+        
+        .gallery-title {
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-size: 3rem;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 1rem 0;
+          line-height: 1.1;
+        }
+        
+        .gallery-subtitle {
+          font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-size: 1.25rem;
+          color: #666666;
+          margin: 0;
+          font-weight: 400;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+        }
+        
+        .gallery-item {
+          background: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+        }
+        
+        .gallery-item:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        
+        .gallery-item:focus {
+          outline: 3px solid #ff6b35;
+          outline-offset: 2px;
+        }
+        
+        .gallery-image {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          display: block;
+        }
+        
+        /* Video Items */
+        .gallery-video .video-thumbnail {
+          position: relative;
+        }
+        
+        .video-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(255,107,53,0.8), rgba(247,147,30,0.8));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-video:hover .video-overlay {
+          opacity: 1;
+        }
+        
+        .play-icon {
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: scale(1);
+          transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-video:hover .play-icon {
+          transform: scale(1.1);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.95);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        .lightbox-close {
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          background: rgba(0, 0, 0, 0.5);
+          border: none;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 10001;
+        }
+        
+        .lightbox-close:hover {
+          background: rgba(255, 107, 53, 0.9);
+          transform: rotate(90deg);
+        }
+        
+        .lightbox-close:focus {
+          outline: 3px solid #ff6b35;
+          outline-offset: 2px;
+        }
+        
+        .lightbox-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.5);
+          border: none;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 10001;
+        }
+        
+        .lightbox-nav:hover {
+          background: rgba(255, 107, 53, 0.9);
+          transform: translateY(-50%) scale(1.1);
+        }
+        
+        .lightbox-nav:focus {
+          outline: 3px solid #ff6b35;
+          outline-offset: 2px;
+        }
+        
+        .lightbox-prev {
+          left: 2rem;
+        }
+        
+        .lightbox-next {
+          right: 2rem;
+        }
+        
+        .lightbox-content {
+          max-width: 90vw;
+          max-height: 90vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .lightbox-content img,
+        .lightbox-content video {
+          max-width: 100%;
+          max-height: 90vh;
+          object-fit: contain;
+          border-radius: 8px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1023px) {
+          .gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        
+          .gallery-title {
+            font-size: 2.5rem;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .maasai-gallery {
+            padding: 4rem 1rem;
+          }
+        
+          .gallery-header {
+            margin-bottom: 3rem;
+          }
+        
+          .gallery-title {
+            font-size: 2rem;
+          }
+        
+          .gallery-subtitle {
+            font-size: 1.125rem;
+          }
+        
+          .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+          }
+        
+          .gallery-image {
+            height: 200px;
+          }
+        
+          .lightbox-close {
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+          }
+        
+          .lightbox-nav {
+            width: 48px;
+            height: 48px;
+          }
+        
+          .lightbox-prev {
+            left: 1rem;
+          }
+        
+          .lightbox-next {
+            right: 1rem;
+          }
+        
+          .play-icon {
+            width: 48px;
+            height: 48px;
+          }
+        
+          .play-icon svg {
+            width: 48px;
+            height: 48px;
+          }
+        }
+        
+        @media (max-width: 479px) {
+          .gallery-grid {
+            grid-template-columns: 1fr;
+          }
+        
+          .gallery-title {
+            font-size: 1.75rem;
+          }
+        }
+        
+        /* Accessibility */
+        .gallery-item:focus-visible {
+          outline: 3px solid #ff6b35;
+          outline-offset: 2px;
+        }
+        
+        button:focus-visible {
+          outline: 3px solid #ff6b35;
+          outline-offset: 2px;
+        }
+        
+        /* Loading state */
+        .gallery-image[loading="lazy"] {
+          background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+          background-size: 200% 100%;
+          animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        
+        /* ============================================
+           NAVIGATION MENU IN HEADER
+           ============================================ */
+        .header-nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4a4a4a;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ff6b35;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;}
+        
+        /* Smooth scroll offset */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+        
+        /* Mobile - hide nav */
+        @media (max-width: 767px) {
+            .header-nav {
+                display: none;
+            }
+        }
+        
+        </style>
 </head>
 <body <?php body_class(); ?>>
     <!-- Skip to content link for keyboard users -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <!-- Brand Header -->
+    <!-- Brand Header -->
     <header class="brand-header" role="banner">
         <div class="brand-left">
             <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Maasai Investments Logo" class="brand-logo" width="50" height="50" loading="eager">
             <h1 class="brand-name">Maasai Investments</h1>
         </div>
+
+        <!-- Navigation Menu -->
+        <nav class="header-nav">
+            <ul class="nav-menu">
+                <li><a href="#main-content" class="nav-link">Home</a></li>
+                <li><a href="#sofy-profile" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+
         <a href="https://wa.me/254718130265" class="header-whatsapp" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -1414,7 +1792,385 @@
 
     </div>
 
+    <!-- Maasai Investments Gallery Section -->
+    <section id="gallery" class="maasai-gallery">
+      <div class="gallery-container">
+        <!-- Header -->
+        <div class="gallery-header">
+          <h2 class="gallery-title">Impact in Action</h2>
+          <p class="gallery-subtitle">Transparency Through Visuals</p>
+        </div>
+    
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+    
+          <!-- Image 1: Hero Landscape -->
+          <div class="gallery-item" data-type="image" data-index="0">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/maasai-market-landscape.jpg"
+              alt="Large Maasai livestock market gathering with traditional dress and expansive landscape"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 2: Investor -->
+          <div class="gallery-item" data-type="image" data-index="1">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/investor-at-market.jpg"
+              alt="Investor at Maasai livestock market observing traditional trading practices"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 3: Partnership -->
+          <div class="gallery-item" data-type="image" data-index="2">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/community-partnership.jpg"
+              alt="Partnership discussion at livestock market with local community members"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Video 1: Market Overview -->
+          <div class="gallery-item gallery-video" data-type="video" data-index="3">
+            <div class="video-thumbnail">
+              <img
+                src="/wp-content/uploads/2026/02/maasai-gallery/market-overview-1-thumb.jpg"
+                alt="Market overview video thumbnail"
+                loading="lazy"
+                class="gallery-image"
+              />
+              <div class="video-overlay">
+                <div class="play-icon">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M24 18L42 30L24 42V18Z" fill="#ff6b35"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Image 4: Market Engagement -->
+          <div class="gallery-item" data-type="image" data-index="4">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/market-engagement.jpg"
+              alt="Community members engaged in livestock market activities"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 5: Livestock Inspection -->
+          <div class="gallery-item" data-type="image" data-index="5">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/livestock-inspection.jpg"
+              alt="Hands-on livestock quality assessment at traditional Maasai market"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 6: Quality Assessment -->
+          <div class="gallery-item" data-type="image" data-index="6">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/quality-assessment.jpg"
+              alt="Careful quality assessment of goats at livestock market"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Video 2: Market Overview 2 -->
+          <div class="gallery-item gallery-video" data-type="video" data-index="7">
+            <div class="video-thumbnail">
+              <img
+                src="/wp-content/uploads/2026/02/maasai-gallery/market-overview-2-thumb.jpg"
+                alt="Market overview video thumbnail"
+                loading="lazy"
+                class="gallery-image"
+              />
+              <div class="video-overlay">
+                <div class="play-icon">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M24 18L42 30L24 42V18Z" fill="#ff6b35"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Image 7: Youth Development 1 -->
+          <div class="gallery-item" data-type="image" data-index="8">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/youth-development-1.jpg"
+              alt="Young community member learning traditional livestock management"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 8: Youth Development 2 -->
+          <div class="gallery-item" data-type="image" data-index="9">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/youth-development-2.jpg"
+              alt="Youth participating in traditional livestock assessment and management"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Video 3: Livestock Operations 1 -->
+          <div class="gallery-item gallery-video" data-type="video" data-index="10">
+            <div class="video-thumbnail">
+              <img
+                src="/wp-content/uploads/2026/02/maasai-gallery/livestock-operations-1-thumb.jpg"
+                alt="Livestock operations video thumbnail"
+                loading="lazy"
+                class="gallery-image"
+              />
+              <div class="video-overlay">
+                <div class="play-icon">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M24 18L42 30L24 42V18Z" fill="#ff6b35"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Image 9: Youth Engagement -->
+          <div class="gallery-item" data-type="image" data-index="11">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/youth-engagement.jpg"
+              alt="Joyful engagement with livestock at community market"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Image 10: Market Activity -->
+          <div class="gallery-item" data-type="image" data-index="12">
+            <img
+              src="/wp-content/uploads/2026/02/maasai-gallery/market-activity.jpg"
+              alt="Active livestock trading at traditional Maasai market"
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+    
+          <!-- Video 4: Livestock Operations 2 -->
+          <div class="gallery-item gallery-video" data-type="video" data-index="13">
+            <div class="video-thumbnail">
+              <img
+                src="/wp-content/uploads/2026/02/maasai-gallery/livestock-operations-2-thumb.jpg"
+                alt="Livestock operations video thumbnail"
+                loading="lazy"
+                class="gallery-image"
+              />
+              <div class="video-overlay">
+                <div class="play-icon">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                    <path d="M24 18L42 30L24 42V18Z" fill="#ff6b35"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div><!-- .gallery-grid -->
+      </div><!-- .gallery-container -->
+    
+      <!-- Lightbox Modal -->
+      <div id="gallery-lightbox" class="lightbox" style="display: none;">
+        <button class="lightbox-close" aria-label="Close lightbox">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M24 8L8 24M8 8L24 24" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+    
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M20 6L10 16L20 26" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+    
+        <button class="lightbox-nav lightbox-next" aria-label="Next">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M12 6L22 16L12 26" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+    
+        <div class="lightbox-content">
+          <img id="lightbox-image" src="" alt="" style="display: none;" />
+          <video id="lightbox-video" controls style="display: none;">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div><!-- .lightbox -->
+    
+    </section><!-- .maasai-gallery -->
+    
+
     <script>
+
+        /**
+         * Maasai Investments Gallery - Lightbox Functionality
+         */
+        
+        (function() {
+          'use strict';
+        
+          // Gallery data (maps index to media info)
+          const galleryMedia = [
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/maasai-market-landscape.jpg', alt: 'Large Maasai livestock market gathering with traditional dress and expansive landscape' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/investor-at-market.jpg', alt: 'Investor at Maasai livestock market observing traditional trading practices' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/community-partnership.jpg', alt: 'Partnership discussion at livestock market with local community members' },
+            { type: 'video', src: '/wp-content/uploads/2026/02/maasai-gallery/market-overview-1.mp4', alt: 'Market overview video' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/market-engagement.jpg', alt: 'Community members engaged in livestock market activities' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/livestock-inspection.jpg', alt: 'Hands-on livestock quality assessment at traditional Maasai market' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/quality-assessment.jpg', alt: 'Careful quality assessment of goats at livestock market' },
+            { type: 'video', src: '/wp-content/uploads/2026/02/maasai-gallery/market-overview-2.mp4', alt: 'Market overview video 2' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/youth-development-1.jpg', alt: 'Young community member learning traditional livestock management' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/youth-development-2.jpg', alt: 'Youth participating in traditional livestock assessment and management' },
+            { type: 'video', src: '/wp-content/uploads/2026/02/maasai-gallery/livestock-operations-1.mp4', alt: 'Livestock operations video' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/youth-engagement.jpg', alt: 'Joyful engagement with livestock at community market' },
+            { type: 'image', src: '/wp-content/uploads/2026/02/maasai-gallery/market-activity.jpg', alt: 'Active livestock trading at traditional Maasai market' },
+            { type: 'video', src: '/wp-content/uploads/2026/02/maasai-gallery/livestock-operations-2.mp4', alt: 'Livestock operations video 2' }
+          ];
+        
+          let currentIndex = 0;
+        
+          // DOM elements
+          const lightbox = document.getElementById('gallery-lightbox');
+          const lightboxImage = document.getElementById('lightbox-image');
+          const lightboxVideo = document.getElementById('lightbox-video');
+          const closeBtn = document.querySelector('.lightbox-close');
+          const prevBtn = document.querySelector('.lightbox-prev');
+          const nextBtn = document.querySelector('.lightbox-next');
+          const galleryItems = document.querySelectorAll('.gallery-item');
+        
+          // Open lightbox
+          function openLightbox(index) {
+            currentIndex = parseInt(index);
+            showMedia(currentIndex);
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        
+            // Focus management
+            closeBtn.focus();
+          }
+        
+          // Close lightbox
+          function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scroll
+        
+            // Pause video if playing
+            if (!lightboxVideo.paused) {
+              lightboxVideo.pause();
+            }
+        
+            // Return focus to gallery item
+            const activeItem = document.querySelector(`.gallery-item[data-index="${currentIndex}"]`);
+            if (activeItem) {
+              activeItem.focus();
+            }
+          }
+        
+          // Show media in lightbox
+          function showMedia(index) {
+            const media = galleryMedia[index];
+        
+            if (media.type === 'image') {
+              lightboxImage.src = media.src;
+              lightboxImage.alt = media.alt;
+              lightboxImage.style.display = 'block';
+              lightboxVideo.style.display = 'none';
+              lightboxVideo.pause();
+            } else if (media.type === 'video') {
+              lightboxVideo.querySelector('source').src = media.src;
+              lightboxVideo.load();
+              lightboxVideo.style.display = 'block';
+              lightboxImage.style.display = 'none';
+            }
+          }
+        
+          // Navigate to previous item
+          function showPrevious() {
+            currentIndex = (currentIndex - 1 + galleryMedia.length) % galleryMedia.length;
+            showMedia(currentIndex);
+          }
+        
+          // Navigate to next item
+          function showNext() {
+            currentIndex = (currentIndex + 1) % galleryMedia.length;
+            showMedia(currentIndex);
+          }
+        
+          // Event listeners - Gallery items
+          galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+              const index = this.getAttribute('data-index');
+              openLightbox(index);
+            });
+        
+            // Keyboard accessibility for gallery items
+            item.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const index = this.getAttribute('data-index');
+                openLightbox(index);
+              }
+            });
+        
+            // Make items tabbable
+            item.setAttribute('tabindex', '0');
+          });
+        
+          // Event listeners - Lightbox controls
+          closeBtn.addEventListener('click', closeLightbox);
+          prevBtn.addEventListener('click', showPrevious);
+          nextBtn.addEventListener('click', showNext);
+        
+          // Click backdrop to close
+          lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+              closeLightbox();
+            }
+          });
+        
+          // Keyboard navigation
+          document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+              switch(e.key) {
+                case 'Escape':
+                  closeLightbox();
+                  break;
+                case 'ArrowLeft':
+                  showPrevious();
+                  break;
+                case 'ArrowRight':
+                  showNext();
+                  break;
+              }
+            }
+          });
+        
+          // Prevent default image drag
+          lightboxImage.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+          });
+        
+        })();
+        
         /**
          * Maasai Investments Slider
          * Accessible, performant hero slider with keyboard navigation
