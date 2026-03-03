@@ -58,39 +58,36 @@ export default function MaasaiLanding() {
 
   // ROI Calculator Logic with Period and Community Value
   const calculateROI = (amount: number, period: string) => {
-    // Calculate number of cycles (10 months = 1 cycle)
-    const cyclesMap = {
-      '10months': 1,
-      '2years': 2.4,    // 24 months / 10
-      '5years': 6,      // 60 months / 10
-      '10years': 12     // 120 months / 10
+    // Calculate period in years
+    const yearsMap = {
+      '10months': 10/12,  // 0.833 years
+      '2years': 2,
+      '5years': 5,
+      '10years': 10
     };
-    const cycles = cyclesMap[period as keyof typeof cyclesMap];
+    const years = yearsMap[period as keyof typeof yearsMap];
 
     const goats = amount / 40;
 
-    // Per cycle (10 months): €30 value increase per goat
-    // Investor gets 1/3 = €10 per goat per cycle (before care fee)
-    // Care fee: €10 per cycle
-    const valueIncreasePerGoatPerCycle = 30;
-    const investorSharePerGoatPerCycle = 10; // 1/3 of €30
-    const careFeePerCycle = 10;
+    // Annual return rate: 9.7% per year
+    const annualReturnRate = 0.097;
 
-    // Total calculations over all cycles
-    const totalValueIncrease = goats * valueIncreasePerGoatPerCycle * cycles;
-    const investorGrossProfit = goats * investorSharePerGoatPerCycle * cycles;
-    const totalCareFee = careFeePerCycle * cycles;
-    const investorNetProfit = Math.max(0, investorGrossProfit - totalCareFee);
+    // Investor profit: investment × annual rate × years
+    const investorNetProfit = amount * annualReturnRate * years;
 
-    // Community value = total value increase - investor profit
-    // (Everything not going to investor goes to community: coordinator + herder wages + goods)
-    const communityValue = totalValueIncrease - investorGrossProfit;
+    // Community value: 7.5x the investor return
+    // For every €1 investor earns, €7.50 is invested in the community
+    const communityValue = investorNetProfit * 7.5;
+
+    // Total value created
+    const totalValueCreated = investorNetProfit + communityValue;
 
     return {
       goats: Math.floor(goats * 10) / 10,
-      cycles: cycles,
+      years: years,
       investorNetProfit: Math.round(investorNetProfit * 100) / 100,
       communityValue: Math.round(communityValue * 100) / 100,
+      totalValueCreated: Math.round(totalValueCreated * 100) / 100,
       totalEstimated: Math.round((amount + investorNetProfit) * 100) / 100
     };
   };
@@ -312,10 +309,10 @@ export default function MaasaiLanding() {
               </label>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
-                  { value: '10months', label: '10 Months', cycles: '1 cycle' },
-                  { value: '2years', label: '2 Years', cycles: '2.4 cycles' },
-                  { value: '5years', label: '5 Years', cycles: '6 cycles' },
-                  { value: '10years', label: '10 Years', cycles: '12 cycles' }
+                  { value: '10months', label: '10 Months', rate: '~8.1% return' },
+                  { value: '2years', label: '2 Years', rate: '~19.4% return' },
+                  { value: '5years', label: '5 Years', rate: '~48.5% return' },
+                  { value: '10years', label: '10 Years', rate: '~97% return' }
                 ].map((period) => (
                   <button
                     key={period.value}
@@ -327,7 +324,7 @@ export default function MaasaiLanding() {
                     }`}
                   >
                     <div className="text-sm">{period.label}</div>
-                    <div className="text-xs opacity-75 mt-1">{period.cycles}</div>
+                    <div className="text-xs opacity-75 mt-1">{period.rate}</div>
                   </button>
                 ))}
               </div>
@@ -339,14 +336,14 @@ export default function MaasaiLanding() {
                 <p className="text-sm text-gray-600 mb-2">Your Investment Returns</p>
                 <p className="text-4xl font-bold text-green-600">€{roi.investorNetProfit}</p>
                 <p className="text-xs text-gray-500 mt-2">
-                  After €{(roi.cycles * 10).toFixed(0)} care fee • {roi.goats} goats • {roi.cycles} cycles
+                  9.7% annual return • {roi.goats} goat{roi.goats !== 1 ? 's' : ''} • {roi.years < 1 ? '10 months' : `${roi.years} year${roi.years !== 1 ? 's' : ''}`}
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-orange-200">
                 <p className="text-sm text-gray-600 mb-2">Community Value Generated</p>
                 <p className="text-4xl font-bold text-orange-600">€{roi.communityValue}</p>
                 <p className="text-xs text-gray-500 mt-2">
-                  Coordinator + herder wages + local goods & services
+                  7.5x your return • Wages + local goods & services
                 </p>
               </div>
             </div>
@@ -360,7 +357,7 @@ export default function MaasaiLanding() {
                 <p className="text-sm font-semibold text-gray-700">Your Total Impact</p>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Your €{investmentAmount} investment creates €{(roi.investorNetProfit + roi.communityValue).toFixed(2)} in total value over {investmentPeriod === '10months' ? '10 months' : investmentPeriod === '2years' ? '2 years' : investmentPeriod === '5years' ? '5 years' : '10 years'}.
+                Your €{investmentAmount} investment creates <span className="font-bold text-orange-600">€{roi.totalValueCreated}</span> in total value over {investmentPeriod === '10months' ? '10 months' : investmentPeriod === '2years' ? '2 years' : investmentPeriod === '5years' ? '5 years' : '10 years'}.
                 You earn €{roi.investorNetProfit} profit while €{roi.communityValue} supports Maasai families through fair wages and local economic activity.
               </p>
             </div>
