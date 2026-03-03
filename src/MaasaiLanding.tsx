@@ -265,8 +265,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== ROI CALCULATOR SECTION ===== */}
-      <section id="calculator" className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section id="calculator" className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/goats.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 247, 237, 0.92) 50%, rgba(255, 251, 235, 0.96) 100%)'
+          }}
+        />
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
               <Calculator className="w-4 h-4" />
@@ -372,8 +388,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== SOCIAL PROOF / TESTIMONIALS ===== */}
-      <section id="testimonials" className="py-20 px-6 bg-gradient-to-br from-gray-50 to-orange-50">
-        <div className="max-w-7xl mx-auto">
+      <section id="testimonials" className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/natumi_large.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(249, 250, 251, 0.90) 0%, rgba(255, 247, 237, 0.94) 50%, rgba(255, 251, 235, 0.97) 100%)'
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               What Investors Say
@@ -490,8 +522,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section id="how-it-works" className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section id="how-it-works" className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/maasai_livestock.avif)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.91) 0%, rgba(255, 247, 237, 0.95) 50%, rgba(255, 251, 235, 0.98) 100%)'
+          }}
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Simple 5-Step Process
@@ -525,8 +573,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== INVESTMENT TIERS ===== */}
-      <section className="py-20 px-6 bg-gradient-to-br from-orange-50 to-amber-50">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/goat-profit.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 247, 237, 0.89) 0%, rgba(255, 251, 235, 0.93) 50%, rgba(252, 231, 243, 0.96) 100%)'
+          }}
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Choose Your Investment
@@ -642,8 +706,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== TRUST SECTION (Legal, Security, Guarantees) ===== */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/sofy.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(249, 250, 251, 0.92) 0%, rgba(243, 244, 246, 0.95) 50%, rgba(255, 247, 237, 0.97) 100%)'
+          }}
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Your Investment is Protected
@@ -768,8 +848,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="py-20 px-6 bg-gradient-to-br from-orange-500 to-amber-600 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/savanna_background.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.85) 0%, rgba(245, 158, 11, 0.90) 50%, rgba(217, 119, 6, 0.94) 100%)'
+          }}
+        />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Make an Impact?
           </h3>
@@ -789,8 +885,24 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== FAQ SECTION ===== */}
-      <section id="faq" className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section id="faq" className="py-20 px-6 relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/natumi.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Gradient Overlay (transparent top-left to opaque bottom-right) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 247, 237, 0.96) 50%, rgba(255, 251, 235, 0.98) 100%)'
+          }}
+        />
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
