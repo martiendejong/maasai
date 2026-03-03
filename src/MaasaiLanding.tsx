@@ -19,6 +19,7 @@ import { Play, Calculator, Shield, Users, TrendingUp, Check, X, ChevronDown, Mes
 
 export default function MaasaiLanding() {
   const [investmentAmount, setInvestmentAmount] = useState(40);
+  const [investmentPeriod, setInvestmentPeriod] = useState<'10months' | '2years' | '5years' | '10years'>('10months');
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -55,22 +56,46 @@ export default function MaasaiLanding() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, galleryItems.length]);
 
-  // ROI Calculator Logic
-  const calculateROI = (amount: number) => {
+  // ROI Calculator Logic with Period and Community Value
+  const calculateROI = (amount: number, period: string) => {
+    // Calculate number of cycles (10 months = 1 cycle)
+    const cyclesMap = {
+      '10months': 1,
+      '2years': 2.4,    // 24 months / 10
+      '5years': 6,      // 60 months / 10
+      '10years': 12     // 120 months / 10
+    };
+    const cycles = cyclesMap[period as keyof typeof cyclesMap];
+
     const goats = amount / 40;
-    const estimatedReturn = amount * 0.097; // 9.7% average
-    const minReturn = amount * 0.068; // 6.8% minimum historic
-    const maxReturn = amount * 0.132; // 13.2% maximum historic
+
+    // Per cycle (10 months): €30 value increase per goat
+    // Investor gets 1/3 = €10 per goat per cycle (before care fee)
+    // Care fee: €10 per cycle
+    const valueIncreasePerGoatPerCycle = 30;
+    const investorSharePerGoatPerCycle = 10; // 1/3 of €30
+    const careFeePerCycle = 10;
+
+    // Total calculations over all cycles
+    const totalValueIncrease = goats * valueIncreasePerGoatPerCycle * cycles;
+    const investorGrossProfit = goats * investorSharePerGoatPerCycle * cycles;
+    const totalCareFee = careFeePerCycle * cycles;
+    const investorNetProfit = Math.max(0, investorGrossProfit - totalCareFee);
+
+    // Community value = total value increase - investor profit
+    // (Everything not going to investor goes to community: coordinator + herder wages + goods)
+    const communityValue = totalValueIncrease - investorGrossProfit;
+
     return {
-      goats: Math.floor(goats * 10) / 10, // 1 decimal
-      estimatedReturn: Math.round(estimatedReturn * 100) / 100,
-      minReturn: Math.round(minReturn * 100) / 100,
-      maxReturn: Math.round(maxReturn * 100) / 100,
-      totalEstimated: Math.round((amount + estimatedReturn) * 100) / 100
+      goats: Math.floor(goats * 10) / 10,
+      cycles: cycles,
+      investorNetProfit: Math.round(investorNetProfit * 100) / 100,
+      communityValue: Math.round(communityValue * 100) / 100,
+      totalEstimated: Math.round((amount + investorNetProfit) * 100) / 100
     };
   };
 
-  const roi = calculateROI(investmentAmount);
+  const roi = calculateROI(investmentAmount, investmentPeriod);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50" style={{
@@ -254,7 +279,7 @@ export default function MaasaiLanding() {
               Calculate Your Returns
             </h3>
             <p className="text-xl text-gray-600">
-              See exactly how much your investment can grow in 10 months
+              See how your investment grows and the community value you create
             </p>
           </div>
 
@@ -280,36 +305,64 @@ export default function MaasaiLanding() {
               </div>
             </div>
 
-            {/* Results Grid */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Number of Goats</p>
-                <p className="text-4xl font-bold text-gray-900">{roi.goats}</p>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Estimated Profit</p>
-                <p className="text-4xl font-bold text-green-600">€{roi.estimatedReturn}</p>
-                <p className="text-xs text-gray-500 mt-1">9.7% average</p>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <p className="text-sm text-gray-600 mb-2">Total After 10 Months</p>
-                <p className="text-4xl font-bold text-orange-600">€{roi.totalEstimated}</p>
+            {/* Period Selector */}
+            <div className="mb-8">
+              <label className="block text-lg font-semibold text-gray-900 mb-4">
+                Investment Period
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { value: '10months', label: '10 Months', cycles: '1 cycle' },
+                  { value: '2years', label: '2 Years', cycles: '2.4 cycles' },
+                  { value: '5years', label: '5 Years', cycles: '6 cycles' },
+                  { value: '10years', label: '10 Years', cycles: '12 cycles' }
+                ].map((period) => (
+                  <button
+                    key={period.value}
+                    onClick={() => setInvestmentPeriod(period.value as any)}
+                    className={`px-4 py-3 rounded-xl font-semibold transition ${
+                      investmentPeriod === period.value
+                        ? 'bg-orange-600 text-white shadow-lg'
+                        : 'bg-white text-gray-700 border border-gray-200 hover:border-orange-300'
+                    }`}
+                  >
+                    <div className="text-sm">{period.label}</div>
+                    <div className="text-xs opacity-75 mt-1">{period.cycles}</div>
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Range Display */}
-            <div className="bg-white/70 rounded-xl p-6 mb-8">
-              <p className="text-sm font-semibold text-gray-700 mb-3">Historical Range (2019-2024):</p>
-              <div className="flex items-center gap-4 text-sm">
-                <div>
-                  <span className="text-gray-600">Best Case:</span>
-                  <span className="ml-2 font-bold text-green-600">€{roi.maxReturn} (13.2%)</span>
-                </div>
-                <div>
-                  <span className="text-gray-600">Worst Case:</span>
-                  <span className="ml-2 font-bold text-red-600">€{roi.minReturn} (6.8%)</span>
-                </div>
+            {/* Results Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white rounded-2xl p-6 shadow-md">
+                <p className="text-sm text-gray-600 mb-2">Your Investment Returns</p>
+                <p className="text-4xl font-bold text-green-600">€{roi.investorNetProfit}</p>
+                <p className="text-xs text-gray-500 mt-2">
+                  After €{(roi.cycles * 10).toFixed(0)} care fee • {roi.goats} goats • {roi.cycles} cycles
+                </p>
               </div>
+              <div className="bg-white rounded-2xl p-6 shadow-md border-2 border-orange-200">
+                <p className="text-sm text-gray-600 mb-2">Community Value Generated</p>
+                <p className="text-4xl font-bold text-orange-600">€{roi.communityValue}</p>
+                <p className="text-xs text-gray-500 mt-2">
+                  Coordinator + herder wages + local goods & services
+                </p>
+              </div>
+            </div>
+
+            {/* Impact Summary */}
+            <div className="bg-white/70 rounded-xl p-6 mb-8">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-orange-600" />
+                </div>
+                <p className="text-sm font-semibold text-gray-700">Your Total Impact</p>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Your €{investmentAmount} investment creates €{(roi.investorNetProfit + roi.communityValue).toFixed(2)} in total value over {investmentPeriod === '10months' ? '10 months' : investmentPeriod === '2years' ? '2 years' : investmentPeriod === '5years' ? '5 years' : '10 years'}.
+                You earn €{roi.investorNetProfit} profit while €{roi.communityValue} supports Maasai families through fair wages and local economic activity.
+              </p>
             </div>
 
             {/* CTA */}
