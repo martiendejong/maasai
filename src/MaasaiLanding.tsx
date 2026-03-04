@@ -23,20 +23,37 @@ export default function MaasaiLanding() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [investPopup, setInvestPopup] = useState<string | null>(null);
+
+  const handleInvest = (tier: string) => {
+    setInvestPopup(tier);
+  };
+
+  const confirmInvest = () => {
+    const msg = encodeURIComponent(`Hi! I'm interested in the ${investPopup} investment plan. Can you help me get started?`);
+    window.open(`https://wa.me/254718130265?text=${msg}`, '_blank');
+    setInvestPopup(null);
+  };
 
   // Gallery items (10 photos + 4 videos from live site)
   const galleryItems = [
     { type: 'image', src: '/maasai-gallery/maasai-market-landscape.jpg', alt: 'Maasai market landscape overview' },
     { type: 'image', src: '/maasai-gallery/market-activity.jpg', alt: 'Active market trading' },
+    { type: 'image', src: '/images/natumi_img.jpeg', alt: 'Natumi with the herd' },
+    { type: 'video', src: '/images/natumi1.mp4', alt: 'Natumi with the goats' },
     { type: 'video', src: '/maasai-gallery/market-overview-1.mp4', alt: 'Market overview video 1' },
     { type: 'image', src: '/maasai-gallery/livestock-inspection.jpg', alt: 'Livestock quality inspection' },
+    { type: 'video', src: '/images/natumi2.mp4', alt: 'Natumi caring for livestock' },
     { type: 'image', src: '/maasai-gallery/investor-at-market.jpg', alt: 'Investor visiting the market' },
     { type: 'video', src: '/maasai-gallery/market-overview-2.mp4', alt: 'Market overview video 2' },
     { type: 'image', src: '/maasai-gallery/quality-assessment.jpg', alt: 'Animal quality assessment' },
+    { type: 'video', src: '/images/natumi3.mp4', alt: 'Natumi daily operations' },
     { type: 'image', src: '/maasai-gallery/market-engagement.jpg', alt: 'Community market engagement' },
     { type: 'video', src: '/maasai-gallery/livestock-operations-1.mp4', alt: 'Livestock operations video 1' },
+    { type: 'video', src: '/images/natumi4.mp4', alt: 'Natumi herding goats' },
     { type: 'image', src: '/maasai-gallery/community-partnership.jpg', alt: 'Community partnership activities' },
     { type: 'image', src: '/maasai-gallery/youth-development-1.jpg', alt: 'Youth development program 1' },
+    { type: 'video', src: '/images/natumi5.mp4', alt: 'Natumi and the community' },
     { type: 'video', src: '/maasai-gallery/livestock-operations-2.mp4', alt: 'Livestock operations video 2' },
     { type: 'image', src: '/maasai-gallery/youth-development-2.jpg', alt: 'Youth development program 2' },
     { type: 'image', src: '/maasai-gallery/youth-engagement.jpg', alt: 'Youth community engagement' }
@@ -70,13 +87,16 @@ export default function MaasaiLanding() {
     const goats = amount / 40;
 
     // Annual return rate: 9.7% per year
-    const annualReturnRate = 0.097;
-
-    // Investor profit: investment × annual rate × years
-    const investorNetProfit = amount * annualReturnRate * years;
+    // 10 months: simple interest (single cycle)
+    // 2, 5, 10 years: compound interest (reinvested each cycle)
+    let investorNetProfit: number;
+    if (period === '10months') {
+      investorNetProfit = amount * 0.097 * years;
+    } else {
+      investorNetProfit = amount * Math.pow(1.097, years) - amount;
+    }
 
     // Community value: 7.5x the investor return
-    // For every €1 investor earns, €7.50 is invested in the community
     const communityValue = investorNetProfit * 7.5;
 
     // Total value created
@@ -118,7 +138,7 @@ export default function MaasaiLanding() {
             <a href="#how-it-works" className="text-gray-700 hover:text-orange-600 transition">How It Works</a>
             <a href="#testimonials" className="text-gray-700 hover:text-orange-600 transition">Investors</a>
             <a href="#faq" className="text-gray-700 hover:text-orange-600 transition">FAQ</a>
-            <a href="#calculator" className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-lg font-semibold hover:shadow-lg transition">Invest Now</a>
+            <a href="#invest" className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-lg font-semibold hover:shadow-lg transition">Invest Now</a>
           </nav>
 
           <a href="https://wa.me/254718130265" className="md:hidden w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition">
@@ -139,11 +159,12 @@ export default function MaasaiLanding() {
             backgroundAttachment: 'fixed'
           }}
         />
-        {/* Gradient Overlay (creates subtle transparency + ensures readability) */}
+        {/* Radial gradient overlay: fixed to match parallax background image */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(135deg, rgba(255, 247, 237, 0.92) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 251, 235, 0.92) 100%)'
+            backgroundImage: 'radial-gradient(ellipse at 100% 75%, rgba(255, 247, 237, 0.38) 0%, rgba(255, 247, 237, 0.92) 35%, rgba(255, 247, 237, 0.99) 60%)',
+            backgroundAttachment: 'fixed'
           }}
         />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -199,7 +220,7 @@ export default function MaasaiLanding() {
             {/* Right: Hero Image / Video */}
             <div className="relative">
               {!videoPlaying ? (
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative rounded-3xl overflow-hidden">
                   <img
                     src="/images/goats.png"
                     alt="Maasai goats grazing in golden savanna sunset, Kenya"
@@ -207,27 +228,24 @@ export default function MaasaiLanding() {
                   />
                   <button
                     onClick={() => setVideoPlaying(true)}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition group"
+                    className="absolute inset-0 flex items-center justify-center transition group"
                   >
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition shadow-xl">
                       <Play className="w-10 h-10 text-orange-600" />
                     </div>
                   </button>
                 </div>
               ) : (
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-black">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                    title="How Maasai Investments Works"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0"
-                  ></iframe>
+                  <video
+                    src="/images/natumi2.mp4"
+                    autoPlay
+                    controls
+                    className="w-full h-full object-cover"
+                  />
                   <button
                     onClick={() => setVideoPlaying(false)}
-                    className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition"
+                    className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition z-10"
                   >
                     <X className="w-6 h-6 text-gray-900" />
                   </button>
@@ -265,8 +283,28 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== ROI CALCULATOR SECTION ===== */}
-      <section id="calculator" className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative" style={{ zIndex: 1 }}>
+        {/* Sticky background - sticks when reaching viewport top, revealed as content scrolls away */}
+        <div className="sticky top-0 h-screen overflow-hidden" style={{ marginBottom: '-100vh' }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(/images/goat_calculator.jpeg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse at 0% 75%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.92) 35%, rgba(255, 255, 255, 0.99) 60%)'
+            }}
+          />
+        </div>
+        {/* Content scrolls over the sticky background */}
+        <div className="relative" style={{ zIndex: 1 }}>
+          <section id="calculator" className="py-20 px-6">
+            <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
               <Calculator className="w-4 h-4" />
@@ -310,9 +348,9 @@ export default function MaasaiLanding() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
                   { value: '10months', label: '10 Months', rate: '~8.1% return' },
-                  { value: '2years', label: '2 Years', rate: '~19.4% return' },
-                  { value: '5years', label: '5 Years', rate: '~48.5% return' },
-                  { value: '10years', label: '10 Years', rate: '~97% return' }
+                  { value: '2years', label: '2 Years', rate: '~20.3% return' },
+                  { value: '5years', label: '5 Years', rate: '~58.7% return' },
+                  { value: '10years', label: '10 Years', rate: '~152% return' }
                 ].map((period) => (
                   <button
                     key={period.value}
@@ -358,38 +396,44 @@ export default function MaasaiLanding() {
               </div>
               <p className="text-gray-700 leading-relaxed">
                 Your €{investmentAmount} investment creates <span className="font-bold text-orange-600">€{roi.totalValueCreated}</span> in total value over {investmentPeriod === '10months' ? '10 months' : investmentPeriod === '2years' ? '2 years' : investmentPeriod === '5years' ? '5 years' : '10 years'}.
-                You earn €{roi.investorNetProfit} profit while €{roi.communityValue} supports Maasai families through fair wages and local economic activity.
+                You earn €{roi.investorNetProfit} profit while €{roi.communityValue} supports Maasai families through local economic activity.
               </p>
             </div>
 
             {/* CTA */}
-            <button className="w-full py-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition transform">
+            <button onClick={() => handleInvest(`Custom (€${investmentAmount})`)} className="w-full py-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition transform">
               Invest €{investmentAmount} Now
             </button>
 
           </div>
+            </div>
+          </section>
         </div>
-      </section>
+        {/* Reveal spacer - background visible during this scroll */}
+        <div className="h-[30vh]" aria-hidden="true" />
+      </div>
 
       {/* ===== SOCIAL PROOF / TESTIMONIALS ===== */}
-      <section id="testimonials" className="py-20 px-6 relative overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/images/savanna_background.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* Gradient Overlay (top transparent → bottom-right opaque) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(249, 250, 251, 0.0) 0%, rgba(249, 250, 251, 0.60) 30%, rgba(255, 247, 237, 0.95) 100%)'
-          }}
-        />
-        <div className="max-w-7xl mx-auto relative z-10">
+      <div className="relative" style={{ zIndex: 2 }}>
+        <div className="sticky top-0 h-screen overflow-hidden" style={{ marginBottom: '-100vh' }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(/images/maasai_golden_sunset.jpeg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse at 100% 75%, rgba(249, 250, 251, 0.38) 0%, rgba(249, 250, 251, 0.92) 35%, rgba(249, 250, 251, 0.99) 60%)'
+            }}
+          />
+        </div>
+        <div className="relative" style={{ zIndex: 1 }}>
+          <section id="testimonials" className="py-20 px-6">
+            <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               What Investors Say
@@ -401,27 +445,27 @@ export default function MaasaiLanding() {
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            {/* Testimonial 1 */}
+            {/* Testimonial 1 - Bertus de Jong */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-gray-100">
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  src="/images/sofy_profile.png"
-                  alt="Emma van Dijk"
+                  src="/images/bertus.jpg"
+                  alt="Bertus de Jong"
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold text-gray-900">Emma van Dijk</p>
-                  <p className="text-sm text-gray-600">Amsterdam, Netherlands</p>
+                  <p className="font-bold text-gray-900">Bertus de Jong</p>
+                  <p className="text-sm text-gray-600">Netherlands</p>
                 </div>
               </div>
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
-                  €200 → €224 (12.8% return)
+                  €100 → €126 (26% return)
                 </span>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                "I was skeptical at first, but the monthly photo updates of MY goats growing up convinced me this was real.
-                Made €24 profit and supported a Maasai family. Win-win!"
+                "I'm doing this to support a mother in Africa so her children can go to school.
+                Made €26 profit and donated an additional €150 to Natumi. It feels amazing to make a real difference!"
               </p>
               <div className="flex text-orange-500">
                 {[1,2,3,4,5].map(i => (
@@ -432,27 +476,27 @@ export default function MaasaiLanding() {
               </div>
             </div>
 
-            {/* Testimonial 2 */}
+            {/* Testimonial 2 - Famkeh Uitdewijk */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-gray-100">
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  src="/images/natumi_large.jpg"
-                  alt="Klaus Schmidt"
+                  src="/images/famkeh.jpg"
+                  alt="Famkeh Uitdewijk"
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold text-gray-900">Klaus Schmidt</p>
-                  <p className="text-sm text-gray-600">Berlin, Germany</p>
+                  <p className="font-bold text-gray-900">Famkeh Uitdewijk</p>
+                  <p className="text-sm text-gray-600">Netherlands</p>
                 </div>
               </div>
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
-                  €100 → €109 (10.3% return)
+                  €120 → €144 (20% return)
                 </span>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                "Better returns than my savings account, and I can actually see WHERE my money goes.
-                The video call with Sofy showing my goats was incredible!"
+                "I wanted to try it out and so far I've made a profit. €24 earned on my €120 investment.
+                It's real, it's transparent, and it actually works!"
               </p>
               <div className="flex text-orange-500">
                 {[1,2,3,4,5].map(i => (
@@ -463,27 +507,27 @@ export default function MaasaiLanding() {
               </div>
             </div>
 
-            {/* Testimonial 3 */}
+            {/* Testimonial 3 - Lianne Tapper */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition border border-gray-100">
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  src="/images/goat-profit.png"
-                  alt="Sophie Dubois"
-                  className="w-16 h-16 rounded-full object-cover bg-orange-50"
+                  src="/images/lianne.jpg"
+                  alt="Lianne Tapper"
+                  className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold text-gray-900">Sophie Dubois</p>
-                  <p className="text-sm text-gray-600">Paris, France</p>
+                  <p className="font-bold text-gray-900">Lianne Tapper</p>
+                  <p className="text-sm text-gray-600">Netherlands</p>
                 </div>
               </div>
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
-                  €40 → €44 (11.2% return)
+                  €120 → €158 (31.7% return)
                 </span>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                "Skip 4 coffees = invest in a goat = support a family + make profit. The math made sense.
-                The transparency made me trust. I've reinvested my €44 already!"
+                "I inherited the goat from my mother and I'm very thankful! €38 profit on a €120 investment.
+                It's a beautiful way to honor her memory while supporting Maasai families."
               </p>
               <div className="flex text-orange-500">
                 {[1,2,3,4,5].map(i => (
@@ -495,18 +539,14 @@ export default function MaasaiLanding() {
             </div>
 
           </div>
-
-          {/* More Reviews Link */}
-          <div className="text-center mt-12">
-            <a href="#" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 transition">
-              Read all 127 reviews →
-            </a>
-          </div>
+            </div>
+          </section>
         </div>
-      </section>
+        <div className="h-[30vh]" aria-hidden="true" />
+      </div>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section id="how-it-works" className="py-20 px-6 bg-white">
+      <section id="how-it-works" className="relative py-20 px-6 bg-white" style={{ zIndex: 3 }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -541,24 +581,26 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== INVESTMENT TIERS ===== */}
-      <section className="py-20 px-6 relative overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/images/goats.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* Gradient Overlay (top transparent → bottom-right opaque) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(255, 247, 237, 0.0) 0%, rgba(255, 247, 237, 0.65) 30%, rgba(255, 237, 213, 0.96) 100%)'
-          }}
-        />
-        <div className="max-w-6xl mx-auto relative z-10">
+      <div className="relative" style={{ zIndex: 4 }}>
+        <div className="sticky top-0 h-screen overflow-hidden" style={{ marginBottom: '-100vh' }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(/images/savanna_kilimanjaro.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse at 0% 75%, rgba(255, 247, 237, 0.38) 0%, rgba(255, 247, 237, 0.92) 35%, rgba(255, 247, 237, 0.99) 60%)'
+            }}
+          />
+        </div>
+        <div className="relative" style={{ zIndex: 1 }}>
+          <section id="invest" className="py-20 px-6">
+            <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Choose Your Investment
@@ -597,7 +639,7 @@ export default function MaasaiLanding() {
                   <span className="text-gray-700">10-month investment period</span>
                 </li>
               </ul>
-              <button className="w-full py-3 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition">
+              <button onClick={() => handleInvest('Starter (€40)')} className="w-full py-3 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition">
                 Invest €40
               </button>
             </div>
@@ -632,7 +674,7 @@ export default function MaasaiLanding() {
                   <span className="text-white font-medium">Priority WhatsApp support</span>
                 </li>
               </ul>
-              <button className="w-full py-3 bg-white text-orange-600 rounded-xl font-bold hover:bg-orange-50 transition">
+              <button onClick={() => handleInvest('Growth (€100)')} className="w-full py-3 bg-white text-orange-600 rounded-xl font-bold hover:bg-orange-50 transition">
                 Invest €100
               </button>
             </div>
@@ -664,21 +706,42 @@ export default function MaasaiLanding() {
                   <span className="text-gray-700 font-medium">VIP investor status</span>
                 </li>
               </ul>
-              <button className="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+              <button onClick={() => handleInvest('Impact (€200)')} className="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-bold hover:shadow-lg transition">
                 Invest €200
               </button>
             </div>
 
           </div>
+            </div>
+          </section>
         </div>
-      </section>
+        <div className="h-[30vh]" aria-hidden="true" />
+      </div>
 
       {/* ===== TRUST SECTION (Legal, Security, Guarantees) ===== */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Your Investment is Protected
+      <div className="relative" style={{ zIndex: 5 }}>
+        <div className="sticky top-0 h-screen overflow-hidden" style={{ marginBottom: '-100vh' }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(/images/maasai_zebra_walk.jpeg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse at 100% 75%, rgba(249, 250, 251, 0.38) 0%, rgba(249, 250, 251, 0.92) 35%, rgba(249, 250, 251, 0.99) 60%)'
+            }}
+          />
+        </div>
+        <div className="relative" style={{ zIndex: 1 }}>
+          <section className="py-20 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  Your Investment is Protected
             </h3>
             <p className="text-xl text-gray-600">
               Transparency, security, and guarantees you can trust
@@ -726,32 +789,18 @@ export default function MaasaiLanding() {
               <a href="#" className="text-orange-600 hover:underline ml-2">Risk Disclosure</a>
             </p>
             <p className="text-xs text-gray-500">
-              Maasai Investments B.V. | Registration: [NL123456789] | Nairobi, Kenya + Amsterdam, Netherlands
+              Maasai Investments is a community based investment initiative
             </p>
-          </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+        <div className="h-[30vh]" aria-hidden="true" />
+      </div>
 
       {/* ===== IMPACT GALLERY ===== */}
-      <section className="py-20 px-6 relative overflow-hidden">
-        {/* Background Image (full opacity) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/images/savanna_background.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* Gradient Overlay (creates subtle transparency + ensures readability) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255, 247, 237, 0.88) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(255, 251, 235, 0.88) 100%)'
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto relative z-10">
+      <section className="relative py-20 px-6 bg-gradient-to-br from-orange-50 to-amber-50" style={{ zIndex: 6 }}>
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
               📸 Real Impact
@@ -800,8 +849,7 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="py-20 px-6 relative overflow-hidden">
-        {/* Background Image */}
+      <section className="relative py-20 px-6 overflow-hidden" style={{ zIndex: 7 }}>
         <div
           className="absolute inset-0"
           style={{
@@ -810,14 +858,13 @@ export default function MaasaiLanding() {
             backgroundPosition: 'center'
           }}
         />
-        {/* Gradient Overlay (top transparent → bottom-right opaque) */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.0) 0%, rgba(249, 115, 22, 0.70) 30%, rgba(217, 119, 6, 0.95) 100%)'
+            background: 'radial-gradient(ellipse at 100% 75%, rgba(249, 115, 22, 0.38) 0%, rgba(249, 115, 22, 0.92) 35%, rgba(249, 115, 22, 0.99) 60%)'
           }}
         />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Make an Impact?
           </h3>
@@ -837,7 +884,7 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== FAQ SECTION ===== */}
-      <section id="faq" className="py-20 px-6 bg-white">
+      <section id="faq" className="relative py-20 px-6 bg-white" style={{ zIndex: 8 }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -911,7 +958,7 @@ export default function MaasaiLanding() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="py-12 px-6 bg-gray-900 text-gray-300">
+      <footer className="relative py-12 px-6 bg-gray-900 text-gray-300" style={{ zIndex: 9 }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
 
           <div>
@@ -966,6 +1013,36 @@ export default function MaasaiLanding() {
           </p>
         </div>
       </footer>
+
+      {/* ===== INVEST POPUP ===== */}
+      {investPopup && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onClick={() => setInvestPopup(null)}>
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">Great choice!</h4>
+              <p className="text-gray-600 mb-6">
+                Click the button below to get in touch with us on WhatsApp. We'll help you get started with your <strong>{investPopup}</strong> investment right away.
+              </p>
+              <button
+                onClick={confirmInvest}
+                className="w-full py-4 bg-green-500 text-white rounded-xl font-bold text-lg hover:bg-green-600 transition flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Continue on WhatsApp
+              </button>
+              <button
+                onClick={() => setInvestPopup(null)}
+                className="mt-3 text-gray-500 hover:text-gray-700 text-sm transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ===== LIGHTBOX MODAL ===== */}
       {lightboxIndex !== null && (
